@@ -1,11 +1,20 @@
-extends CharacterBody3D
+extends Entity
 
-
-var speed = 5.0
-var jump_velocity = 4.5
+#movement
+var speed = 50.0
+var jump_velocity = 5.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+# Components
+@onready var camera = $CameraController
+
+
+func _ready():
+	max_hp = 100.0
+	current_hp = 100.0
+	
 
 
 func _physics_process(delta):
@@ -29,3 +38,9 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+
+
+# Override death
+func death():
+	print("Moriste")
+	queue_free()
