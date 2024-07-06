@@ -13,7 +13,7 @@ size = Vector3(2.95702, 10.7454, 1.63672)
 script = ExtResource("1_ab17k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0262871, -1.78206, 0)
+transform = Transform3D(1, 0, 0, 0, 0.538433, 0, 0, 0, 1.41553, 0.0262871, -0.532505, 0)
 shape = SubResource("BoxShape3D_eljy6")
 
 [node name="SkinController" type="Node3D" parent="."]
