@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bplwdxb5tyd54"]
+[gd_scene load_steps=5 format=3 uid="uid://bplwdxb5tyd54"]
 
 [ext_resource type="PackedScene" uid="uid://xn7j454n6ph5" path="res://Scenes/Characters/Player.tscn" id="1_dbubd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8j05g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_s2uyu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wd18"]
+vertex_color_is_srgb = true
+albedo_color = Color(1, 0.466667, 0.537255, 1)
 
 [node name="World" type="Node3D"]
 
@@ -17,9 +21,11 @@ shape = SubResource("BoxShape3D_8j05g")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 0, 0, 0)
 mesh = SubResource("BoxMesh_s2uyu")
+surface_material_override/0 = SubResource("StandardMaterial3D_5wd18")
 
 [node name="Player" parent="." instance=ExtResource("1_dbubd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.1945, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.439939, 0.898027, 0, -0.898027, -0.439939, 0, 35.1369, 0)
+transform = Transform3D(0.219455, 0.457517, -0.861695, 0.491652, 0.711016, 0.502727, 0.842685, -0.53398, -0.0689033, -64.935, 63.8011, 0)
+shadow_enabled = true

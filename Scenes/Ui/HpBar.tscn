@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://fceucpsvu83n"]
+
+[ext_resource type="Texture2D" uid="uid://bgsnpflr1eijh" path="res://Png/Rectangle/Rectangulo.png" id="1_epi3s"]
+
+[node name="HpBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Bar" type="TextureProgressBar" parent="."]
+light_mask = 2
+visibility_layer = 2
+layout_mode = 0
+offset_left = 6.0
+offset_top = 600.0
+offset_right = 259.0
+offset_bottom = 639.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_epi3s")
+texture_over = ExtResource("1_epi3s")
+texture_progress = ExtResource("1_epi3s")
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(0.411765, 0, 0, 0)
+tint_progress = Color(0.956475, 0.530049, 0.512007, 1)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://xn7j454n6ph5"]
+[gd_scene load_steps=7 format=3 uid="uid://xn7j454n6ph5"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Player.gd" id="1_ab17k"]
 [ext_resource type="PackedScene" uid="uid://ddo2p86gwk5xn" path="res://Models/Robots/Robot0001.glb" id="1_juua5"]
 [ext_resource type="Script" path="res://Scripts/Characters/CameraController.gd" id="3_dshg4"]
+[ext_resource type="PackedScene" uid="uid://dqactihshk360" path="res://Scenes/Ui/HealthBar.tscn" id="4_4rduo"]
+[ext_resource type="PackedScene" uid="uid://fceucpsvu83n" path="res://Scenes/Ui/HpBar.tscn" id="5_n21so"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eljy6"]
 size = Vector3(2.95702, 10.7454, 1.63672)
@@ -22,3 +24,10 @@ script = ExtResource("3_dshg4")
 
 [node name="Camera3D" type="Camera3D" parent="CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0442, -0.967529)
+current = true
+
+[node name="HealthBar" parent="CameraController/Camera3D" instance=ExtResource("4_4rduo")]
+transform = Transform3D(-0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, -1.29015, -1.06561, -1.56806)
+visible = false
+
+[node name="HpBar" parent="CameraController/Camera3D" instance=ExtResource("5_n21so")]

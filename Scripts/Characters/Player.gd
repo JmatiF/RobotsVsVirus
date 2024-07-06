@@ -2,7 +2,7 @@ extends Entity
 
 #movement
 var speed = 50.0
-var jump_velocity = 5.0
+var jump_velocity = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -20,6 +20,7 @@ func _ready():
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
+		print("Not on floor")
 		velocity.y -= gravity * delta
 
 	# Handle jump.
