@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://xn7j454n6ph5"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Player.gd" id="1_ab17k"]
-[ext_resource type="PackedScene" uid="uid://ddo2p86gwk5xn" path="res://Models/Robots/Robot0001.glb" id="1_juua5"]
+[ext_resource type="PackedScene" uid="uid://c5jwivcadswto" path="res://Scenes/Characters/Robot0003.tscn" id="2_3b1kx"]
 [ext_resource type="Script" path="res://Scripts/Characters/CameraController.gd" id="3_dshg4"]
 [ext_resource type="PackedScene" uid="uid://dqactihshk360" path="res://Scenes/Ui/HealthBar.tscn" id="4_4rduo"]
 [ext_resource type="PackedScene" uid="uid://fceucpsvu83n" path="res://Scenes/Ui/HpBar.tscn" id="5_n21so"]
@@ -16,10 +16,12 @@ script = ExtResource("1_ab17k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0262871, -1.78206, 0)
 shape = SubResource("BoxShape3D_eljy6")
 
-[node name="Robot0001" parent="." instance=ExtResource("1_juua5")]
+[node name="SkinController" type="Node3D" parent="."]
+
+[node name="Robot0003" parent="SkinController" instance=ExtResource("2_3b1kx")]
 
 [node name="CameraController" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.108821)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14219, -0.108821)
 script = ExtResource("3_dshg4")
 
 [node name="Camera3D" type="Camera3D" parent="CameraController"]
