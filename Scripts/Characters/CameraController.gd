@@ -18,7 +18,6 @@ func _ready():
 func _process(delta: float):
 	var rot = Vector3(-mouseDelta.y, mouseDelta.x, 0) * look_sensivility * delta
 	
-	
 	camera.rotation_degrees.x += rot.x
 	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, min_look_angle, max_look_angle)
 	

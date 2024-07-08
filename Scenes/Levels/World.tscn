@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bplwdxb5tyd54"]
 
-[ext_resource type="PackedScene" uid="uid://xn7j454n6ph5" path="res://Scenes/Characters/Player.tscn" id="1_dbubd"]
+[ext_resource type="PackedScene" uid="uid://xn7j454n6ph5" path="res://Scenes/Player/Player.tscn" id="1_dbubd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8j05g"]
 
@@ -24,7 +24,7 @@ mesh = SubResource("BoxMesh_s2uyu")
 surface_material_override/0 = SubResource("StandardMaterial3D_5wd18")
 
 [node name="Player" parent="." instance=ExtResource("1_dbubd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.1945, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95194, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.219455, 0.457517, -0.861695, 0.491652, 0.711016, 0.502727, 0.842685, -0.53398, -0.0689033, -64.935, 63.8011, 0)

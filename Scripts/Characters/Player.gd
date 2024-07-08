@@ -9,6 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Components
 @onready var camera = $CameraController
+@onready var robot = $SkinController
 
 
 func _ready():
