@@ -14,13 +14,12 @@ func load_robot(robot_id):
 	if current_robot:
 		current_robot.queue_free()
 
-	var current_robot = load(robot_scenes[robot_id]).instantiate()
+	current_robot = load(robot_scenes[robot_id]).instantiate()
 	add_child(current_robot)
 
 
-
-func walk():
+func play_walk():
 	current_robot.get_node("AnimationTree").set("parameters/movement/transition_request", "walk")
 
-func idle():
+func play_idle():
 	current_robot.get_node("AnimationTree").set("parameters/movement/transition_request", "idle")

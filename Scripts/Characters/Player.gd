@@ -16,7 +16,8 @@ func _ready():
 	max_hp = 100.0
 	current_hp = 100.0
 	
-
+func _process(delta):
+	update_animation()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -41,6 +42,11 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func update_animation():
+	if velocity.x != 0 or velocity.z != 0:
+		robot.play_walk()
+	else:
+		robot.play_idle()
 
 # Override death
 func death():
