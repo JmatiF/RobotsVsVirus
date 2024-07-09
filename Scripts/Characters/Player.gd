@@ -1,8 +1,11 @@
 extends Entity
 
-#movement
+# movement
 var speed = 50.0
 var jump_velocity = 4.5
+
+# Animations
+var movement_animation = "idle"
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -44,9 +47,10 @@ func _physics_process(delta):
 
 func update_animation():
 	if velocity.x != 0 or velocity.z != 0:
-		robot.play_walk()
-	else:
-		robot.play_idle()
+		if movement_animation == "idle":
+			movement_animation = "walk"
+			robot.play_walk()
+			print(movement_animation)
 
 # Override death
 func death():

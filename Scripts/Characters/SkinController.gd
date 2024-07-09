@@ -6,6 +6,7 @@ const robot_scenes = {
 }
 
 var current_robot
+var current_tree
 
 func _ready():
 	load_robot(1)
@@ -16,10 +17,11 @@ func load_robot(robot_id):
 
 	current_robot = load(robot_scenes[robot_id]).instantiate()
 	add_child(current_robot)
+	current_tree = current_robot.get_node("AnimationTree")
 
 
 func play_walk():
-	current_robot.get_node("AnimationTree").set("parameters/movement/transition_request", "walk")
+	current_tree.set("parameters/movement/transition_request", "walk")
 
 func play_idle():
-	current_robot.get_node("AnimationTree").set("parameters/movement/transition_request", "idle")
+	current_tree.set("parameters/movement/transition_request", "idle")
