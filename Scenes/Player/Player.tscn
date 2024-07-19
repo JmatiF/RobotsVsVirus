@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://xn7j454n6ph5"]
+[gd_scene load_steps=9 format=3 uid="uid://xn7j454n6ph5"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/Player.gd" id="1_ab17k"]
-[ext_resource type="Script" path="res://Scripts/Characters/SkinController.gd" id="2_4nigf"]
-[ext_resource type="Script" path="res://Scripts/Characters/CameraController.gd" id="3_dshg4"]
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_ab17k"]
+[ext_resource type="Script" path="res://Scripts/Player/SkinController.gd" id="2_4nigf"]
+[ext_resource type="Script" path="res://Scripts/Player/CameraController.gd" id="3_dshg4"]
+[ext_resource type="PackedScene" uid="uid://d3l3pg86vcpab" path="res://Models/Robots/Robot0003.glb" id="3_ln4vi"]
+[ext_resource type="Script" path="res://Scripts/Player/WeaponController.gd" id="3_ls3id"]
 [ext_resource type="PackedScene" uid="uid://dqactihshk360" path="res://Scenes/Ui/HealthBar.tscn" id="4_4rduo"]
 [ext_resource type="PackedScene" uid="uid://fceucpsvu83n" path="res://Scenes/Ui/HpBar.tscn" id="5_n21so"]
 
@@ -19,12 +21,17 @@ shape = SubResource("BoxShape3D_eljy6")
 [node name="SkinController" type="Node3D" parent="."]
 script = ExtResource("2_4nigf")
 
+[node name="Robot0003" parent="SkinController" instance=ExtResource("3_ln4vi")]
+
+[node name="WeaponController" type="Node3D" parent="."]
+script = ExtResource("3_ls3id")
+
 [node name="CameraController" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3029, -0.108821)
 script = ExtResource("3_dshg4")
 
 [node name="Camera3D" type="Camera3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0442, -0.967529)
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 22, 5.5)
 current = true
 
 [node name="HealthBar" parent="CameraController/Camera3D" instance=ExtResource("4_4rduo")]
