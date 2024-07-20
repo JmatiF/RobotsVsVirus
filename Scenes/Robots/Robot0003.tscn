@@ -44,14 +44,16 @@ bones/3/rotation = Quaternion(-8.25547e-08, 1.22742e-08, 0.988566, 0.15079)
 bones/4/rotation = Quaternion(-0.263278, -0.136357, 0.00638515, 0.955013)
 bones/4/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(-4.05415e-07, -7.30663e-08, -0.736073, 0.676903)
-bones/7/rotation = Quaternion(0.704658, 0.0588008, -0.704658, -0.0588008)
-bones/8/rotation = Quaternion(-4.95321e-17, -6.56228e-16, 0.081097, 0.996706)
+bones/7/rotation = Quaternion(0.699459, 0.10372, -0.699458, -0.10372)
+bones/8/rotation = Quaternion(2.9346e-16, 1.36638e-15, 0.14306, 0.989714)
+bones/9/rotation = Quaternion(9.69803e-08, 1.00508e-07, -0.505206, 0.862999)
 bones/10/rotation = Quaternion(8.26824e-08, 1.17361e-08, 0.989551, -0.144183)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(-0.204917, 0.122851, -0.00649211, 0.971017)
 bones/12/rotation = Quaternion(2.65997e-15, 1.80677e-07, 3.72529e-09, 1)
 bones/13/rotation = Quaternion(-4.01752e-07, 9.50029e-08, 0.736073, 0.676903)
 bones/13/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(9.69803e-08, -1.00508e-07, 0.505206, 0.862999)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "EsqueletoAction"

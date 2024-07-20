@@ -22,37 +22,21 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera = $CameraController/Camera3D
 @onready var collision_shape = $CollisionShape3D
 @onready var skin_controller = $SkinController
-@onready var weapon_controller = $WeaponController
+@onready var weapon_controller = $SkinController/WeaponController
+@onready var health_bar = $CameraController/Camera3D/HealthBar/Bar
 
 
 func _ready():
 	max_hp = 100.0
 	current_hp = 100.0
+	health_bar.scale.x = 7 #7.8 = max
 	
 func _process(delta):
 	update_animation()
 
 func _physics_process(delta):
 	# Mouse movement
-	var mouse_pos = get_viewport().get_mouse_position()
-	var ray_length = 2000
-	var from = camera.project_ray_origin(mouse_pos)
-	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
-	var space = get_world_3d().direct_space_state
-	var ray_query = PhysicsRayQueryParameters3D.new()
-	ray_query.from = from
-	ray_query.to = to
-	ray_query.collide_with_areas = true
-	var raycast_result = space.intersect_ray(ray_query)
-	
-	if not raycast_result.is_empty():
-		var pos = raycast_result.position
-		var look_at_me = Vector3(pos.x, position.y, pos.z)
-		collision_shape.look_at(look_at_me, Vector3.UP)
-		skin_controller.look_at(look_at_me, Vector3.UP)
-		weapon_controller.look_at(look_at_me, Vector3.UP)
-	
-	
+	mouse_movement()
 	# Add the gravity.
 	if not is_on_floor():
 		#print("Not on floor")
@@ -71,16 +55,33 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func mouse_movement():
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_length = 2000
+	var from = camera.project_ray_origin(mouse_pos)
+	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
+	var space = get_world_3d().direct_space_state
+	var ray_query = PhysicsRayQueryParameters3D.new()
+	ray_query.from = from
+	ray_query.to = to
+	ray_query.collide_with_areas = true
+	var raycast_result = space.intersect_ray(ray_query)
+	
+	if not raycast_result.is_empty():
+		var pos = raycast_result.position
+		var look_at_me = Vector3(pos.x, position.y, pos.z)
+		#collision_shape.look_at(look_at_me, Vector3.UP)
+		skin_controller.look_at(look_at_me, Vector3.UP)
+		#weapon_controller.look_at(look_at_me, Vector3.UP)
+		#weapon_controller.rotation_degrees = skin_controller.rotation_degrees
 
 func update_animation():
 	if (velocity.x != 0 or velocity.z != 0) and movement_animation == "idle":
 		movement_animation = "walk"
 		skin_controller.play_walk()
-		print("walk")
-	elif (velocity.x == 0 or velocity.z == 0) and movement_animation == "walk":
+	elif (velocity.x == 0 and velocity.z == 0) and movement_animation == "walk":
 		movement_animation = "idle"
 		skin_controller.play_idle()
-		print("idle")
 
 # Override death
 func death():

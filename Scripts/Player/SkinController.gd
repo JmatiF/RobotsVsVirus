@@ -14,7 +14,6 @@ func _ready():
 func load_robot(robot_id):
 	if current_robot:
 		current_robot.queue_free()
-
 	current_robot = load(robot_scenes[robot_id]).instantiate()
 	add_child(current_robot)
 	current_tree = current_robot.get_node("AnimationTree")
