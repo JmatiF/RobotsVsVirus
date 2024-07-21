@@ -22,19 +22,21 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera = $CameraController/Camera3D
 @onready var collision_shape = $CollisionShape3D
 @onready var skin_controller = $SkinController
-@onready var weapon_controller = $SkinController/WeaponController
+@onready var weapon_controller = $WeaponController
 @onready var health_bar = $CameraController/Camera3D/HealthBar/Bar
-
 
 func _ready():
 	max_hp = 100.0
 	current_hp = 100.0
 	health_bar.scale.x = 7 #7.8 = max
-	
+
+
 func _process(delta):
 	update_animation()
+	
 
 func _physics_process(delta):
+	holding_right()
 	# Mouse movement
 	mouse_movement()
 	# Add the gravity.
@@ -54,6 +56,9 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("equip_1"):
+		holding_right()
 
 func mouse_movement():
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -82,6 +87,15 @@ func update_animation():
 	elif (velocity.x == 0 and velocity.z == 0) and movement_animation == "walk":
 		movement_animation = "idle"
 		skin_controller.play_idle()
+
+func holding_right():
+	var bone_path = skin_controller.holding_bone("Holding.R")
+	if bone_path:
+		weapon_controller.attach_to_bone(13,"Holding.R", bone_path)
+
+func holding_left():
+	var holding_bone = skin_controller.holding_bone("Holding.L")
+	#weapon_controller.attach_to_bone(holding_bone)
 
 # Override death
 func death():

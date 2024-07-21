@@ -13,16 +13,20 @@ height = 1.86856
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ab17k")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2.17787, 0, 0, 0, 3.13626, 0, 0, 0, 2.24332, 0, 2.96857, 0)
 shape = SubResource("CapsuleShape3D_6tmth")
 
-[node name="SkinController" type="Node3D" parent="."]
-script = ExtResource("2_4nigf")
-
-[node name="WeaponController" type="Node3D" parent="SkinController"]
+[node name="WeaponController" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.700427, 3.73969, -1.45088)
 script = ExtResource("3_ls3id")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="WeaponController"]
+use_external_skeleton = true
+external_skeleton = NodePath("")
+
+[node name="SkinController" type="Node3D" parent="."]
+script = ExtResource("2_4nigf")
 
 [node name="CameraController" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3029, -0.108821)

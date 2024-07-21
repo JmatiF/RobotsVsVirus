@@ -2,8 +2,10 @@ extends Node3D
 
 enum WeaponType { PRIMARY, SECONDARY, TERTIARY }
 
+@onready var bone_attachment = $BoneAttachment3D
+
 const weapon_scenes = {
-	1: "res://Models/weapons/primary/AssaultRifles/M4 TRY 1.glb",
+	1: "res://Scenes/Weapons/Primary/AssaultRifles/M4Try1.tscn",
 	2: "res://Scenes/Weapons/Secondary/Robot0003.tscn",
 	3: "res://Scenes/Weapons/Tertiary/Robot0003.tscn",
 }
@@ -42,4 +44,11 @@ func equip_weapon(weapon):
 	if current_weapon:
 		current_weapon.queue_free()
 	current_weapon = weapon
-	add_child(current_weapon)
+	bone_attachment.add_child(current_weapon)
+
+
+func attach_to_bone(bone_idx, bone_name,skeleton):
+	#print(skeleton,bone_name)
+	bone_attachment.set_external_skeleton(skeleton)
+	bone_attachment.bone_idx = bone_idx
+	bone_attachment.bone_name = bone_name

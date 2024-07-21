@@ -19,6 +19,15 @@ func load_robot(robot_id):
 	current_tree = current_robot.get_node("AnimationTree")
 
 
+func holding_bone(bone_name):
+	if current_robot:
+		var skeleton = current_robot.get_node("Esqueleto/Skeleton3D")
+		if skeleton:
+			var bone_index = skeleton.find_bone(bone_name)
+			if bone_index != -1:
+				return current_robot.get_node("Esqueleto/Skeleton3D").get_path()
+	return null
+
 func play_walk():
 	current_tree.set("parameters/movement/transition_request", "walk")
 
