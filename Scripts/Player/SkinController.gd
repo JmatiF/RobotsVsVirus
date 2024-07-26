@@ -3,13 +3,14 @@ extends Node3D
 const robot_scenes = {
 	1: "res://Scenes/Robots/Robot0003.tscn",
 	2: "res://Scenes/Robots/Robot0004.tscn",
+	3: "res://Scenes/Robots/Robot0004.2.tscn",
 }
 
 var current_robot
 var current_tree
 
 func _ready():
-	load_robot(1)
+	load_robot(2)
 
 func load_robot(robot_id):
 	if current_robot:
@@ -25,7 +26,8 @@ func holding_bone(bone_name):
 		if skeleton:
 			var bone_index = skeleton.find_bone(bone_name)
 			if bone_index != -1:
-				return current_robot.get_node("Esqueleto/Skeleton3D").get_path()
+				#print(bone_index)
+				return [skeleton.get_path(),bone_index]
 	return null
 
 func play_walk():

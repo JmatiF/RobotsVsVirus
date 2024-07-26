@@ -47,8 +47,10 @@ func equip_weapon(weapon):
 	bone_attachment.add_child(current_weapon)
 
 
-func attach_to_bone(bone_idx, bone_name,skeleton):
+func attach_to_bone(bone_name,skeleton, bone_index):
 	#print(skeleton,bone_name)
 	bone_attachment.set_external_skeleton(skeleton)
-	bone_attachment.bone_idx = bone_idx
 	bone_attachment.bone_name = bone_name
+	#bone_attachment.set_bone_index(bone_index)
+	#var bone_pose = skeleton.get_bone_global_pose(bone_index)
+	#rotation_degrees = bone_pose.basis.get_euler()

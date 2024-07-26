@@ -7,9 +7,6 @@ var jump_velocity = 4.5
 # Mouse
 var look_sensivility : float = 5.0 # set para las confg ?
 
-# Animations
-var movement_animation = "idle"
-
 # Vectors
 var mouseDelta = Vector2()
 var ray_origin = Vector3()
@@ -81,17 +78,17 @@ func mouse_movement():
 		#weapon_controller.rotation_degrees = skin_controller.rotation_degrees
 
 func update_animation():
-	if (velocity.x != 0 or velocity.z != 0) and movement_animation == "idle":
-		movement_animation = "walk"
+	if (velocity.x != 0 or velocity.z != 0):
 		skin_controller.play_walk()
-	elif (velocity.x == 0 and velocity.z == 0) and movement_animation == "walk":
-		movement_animation = "idle"
+	elif (velocity.x == 0 and velocity.z == 0): 
 		skin_controller.play_idle()
 
 func holding_right():
-	var bone_path = skin_controller.holding_bone("Holding.R")
-	if bone_path:
-		weapon_controller.attach_to_bone(13,"Holding.R", bone_path)
+	var result = skin_controller.holding_bone("Holding.R")
+	if result:
+		var bone_path = result[0]
+		var bone_index = result[1]
+		weapon_controller.attach_to_bone("Holding.R", bone_path, bone_index)
 
 func holding_left():
 	var holding_bone = skin_controller.holding_bone("Holding.L")

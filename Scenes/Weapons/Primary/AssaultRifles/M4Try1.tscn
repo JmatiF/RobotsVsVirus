@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cifshu1wswof0" path="res://Models/weapons/primary/AssaultRifles/M4 TRY 1.glb" id="1_n86od"]
 
 [node name="M4 TRY 1" instance=ExtResource("1_n86od")]
+
+[node name="SpawnBullet" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794709, -2.9233)

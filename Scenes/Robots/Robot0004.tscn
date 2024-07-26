@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5jwivcadswto"]
+[gd_scene load_steps=8 format=3 uid="uid://c0ml0hop6sa7e"]
 
-[ext_resource type="PackedScene" uid="uid://d3l3pg86vcpab" path="res://Models/Robots/Robot0003.glb" id="1_5s5t8"]
+[ext_resource type="PackedScene" uid="uid://c5l4k5nfdwqvh" path="res://Models/Robots/Robot0004.glb" id="1_420gf"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_vaxi2"]
 filter_enabled = true
@@ -16,16 +16,16 @@ animation = &"idle"
 allow_transition_to_self = true
 input_0/name = "idle"
 input_0/auto_advance = true
-input_0/reset = true
+input_0/reset = false
 input_1/name = "walk"
 input_1/auto_advance = true
-input_1/reset = true
+input_1/reset = false
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ju6b2"]
 animation = &"walk"
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4gq4n"]
-graph_offset = Vector2(-482, 274)
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0ijed"]
+graph_offset = Vector2(-506.336, 194.671)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_vaxi2")
 nodes/Blend2/position = Vector2(100, 280)
 nodes/holding_r/node = SubResource("AnimationNodeAnimation_vtimt")
@@ -39,24 +39,32 @@ nodes/walk_animation/node = SubResource("AnimationNodeAnimation_ju6b2")
 nodes/walk_animation/position = Vector2(-320, 520)
 node_connections = [&"Blend2", 0, &"holding_r", &"Blend2", 1, &"movement", &"movement", 0, &"idle_animation", &"movement", 1, &"walk_animation", &"output", 0, &"Blend2"]
 
-[node name="Robot0003" instance=ExtResource("1_5s5t8")]
+[node name="Robot0004" instance=ExtResource("1_420gf")]
 
 [node name="Skeleton3D" parent="Esqueleto" index="0"]
-bones/0/position = Vector3(0, 6.09847e-05, 0)
-bones/3/position = Vector3(-1.0039, 1.61021, 0.0413415)
-bones/3/rotation = Quaternion(-0.631734, -0.601048, 0.354667, 0.33744)
-bones/4/rotation = Quaternion(0.0351221, -0.0425384, -0.0100663, 0.998427)
-bones/7/position = Vector3(-0.584293, -0.147398, 0.0143296)
-bones/10/position = Vector3(1.0039, 1.61021, 0.0413415)
-bones/10/rotation = Quaternion(0.0208529, -0.020898, 0.706033, -0.707563)
-bones/11/rotation = Quaternion(-0.906205, 0.0265334, -0.0344439, 0.420598)
-bones/13/rotation = Quaternion(0.736052, -0.676884, 0.00550545, 0.00506262)
-bones/14/position = Vector3(0.584293, -0.147398, 0.0143296)
-bones/14/rotation = Quaternion(0.70141, -0.089576, 0.70141, -0.089576)
-bones/15/rotation = Quaternion(-1.14275e-08, -1.6376e-15, -0.137581, 0.990491)
+bones/1/rotation = Quaternion(0, -0.297641, 0, 0.954678)
+bones/2/rotation = Quaternion(0, 0.297691, 0, 0.954662)
+bones/4/rotation = Quaternion(-0.499465, -0.473354, 0.528437, 0.497218)
+bones/5/rotation = Quaternion(0.0333266, -0.0385039, -0.0163971, 0.998568)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(4.36688e-16, -5.96046e-08, 4.65661e-10, 1)
+bones/7/rotation = Quaternion(-0.707063, -0.707063, -0.00785607, 0.00785644)
+bones/8/rotation = Quaternion(-0.521259, 0.514158, -0.48165, 0.481605)
+bones/9/rotation = Quaternion(-0.724786, 0.0322378, -0.0107335, 0.688136)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.520941, -0.00156468, -0.0160259, 0.853441)
+bones/11/rotation = Quaternion(0.707063, -0.707063, 0.00785644, 0.00785607)
+bones/12/rotation = Quaternion(0.695283, 0.128773, -0.695282, -0.128773)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(2.4866e-09, 1.56975e-08, 0.156456, 0.987685)
+bones/14/rotation = Quaternion(3.15229e-08, -7.81042e-09, -0.473086, 0.881017)
+bones/15/rotation = Quaternion(0.696432, -0.122401, 0.696432, -0.122401)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(-2.06762e-08, -1.57165e-08, -0.148714, 0.98888)
+bones/17/rotation = Quaternion(3.15229e-08, 7.81043e-09, 0.473085, 0.881017)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
-tree_root = SubResource("AnimationNodeBlendTree_4gq4n")
+tree_root = SubResource("AnimationNodeBlendTree_0ijed")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Blend2/blend_amount = 1.0
 parameters/movement/current_state = "idle"
