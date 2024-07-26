@@ -26,6 +26,8 @@ func _ready():
 	max_hp = 100.0
 	current_hp = 100.0
 	health_bar.scale.x = 7 #7.8 = max
+	#holding("Holding.R")
+	holding("Holding.L")
 
 
 func _process(delta):
@@ -33,7 +35,6 @@ func _process(delta):
 	
 
 func _physics_process(delta):
-	holding_right()
 	# Mouse movement
 	mouse_movement()
 	# Add the gravity.
@@ -55,7 +56,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("equip_1"):
-		holding_right()
+		pass
+		#holding("Holding.R")
 
 func mouse_movement():
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -83,16 +85,12 @@ func update_animation():
 	elif (velocity.x == 0 and velocity.z == 0): 
 		skin_controller.play_idle()
 
-func holding_right():
-	var result = skin_controller.holding_bone("Holding.R")
+func holding(hold):
+	var result = skin_controller.holding_bone(hold)
 	if result:
 		var bone_path = result[0]
 		var bone_index = result[1]
-		weapon_controller.attach_to_bone("Holding.R", bone_path, bone_index)
-
-func holding_left():
-	var holding_bone = skin_controller.holding_bone("Holding.L")
-	#weapon_controller.attach_to_bone(holding_bone)
+		weapon_controller.attach_to_bone(hold, bone_path, bone_index)
 
 # Override death
 func death():

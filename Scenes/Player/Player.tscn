@@ -18,7 +18,6 @@ transform = Transform3D(2.17787, 0, 0, 0, 3.13626, 0, 0, 0, 2.24332, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_6tmth")
 
 [node name="WeaponController" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.700427, 3.73969, -1.45088)
 script = ExtResource("3_ls3id")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="WeaponController"]
