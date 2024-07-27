@@ -1,8 +1,8 @@
 extends Entity
 
 # Movement
-var speed = 50.0
-var jump_velocity = 4.5
+var speed = 40.0
+#var jump_velocity = 4.5
 
 # Mouse
 var look_sensivility : float = 5.0 # set para las confg ?

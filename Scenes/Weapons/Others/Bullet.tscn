@@ -8,10 +8,11 @@ size = Vector3(0.0875244, 0.271301, 0.0879822)
 
 [node name="Bullet" type="Area3D"]
 collision_layer = 0
-collision_mask = 7
+collision_mask = 6
 script = ExtResource("1_nnc1y")
 
 [node name="Bullet" parent="." instance=ExtResource("2_r7ug0")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000183105, 0.0265808, 1.52588e-05)
