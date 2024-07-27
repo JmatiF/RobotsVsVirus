@@ -11,13 +11,12 @@ func setup(range_of_weapon):
 
 func _physics_process(delta):
 	var direction = Vector3.RIGHT.rotated(rotation, rotation.y)  # Assuming isometric view
-	if bullet_direction:
-		print("front")
-		position += direction * SPEED * delta
-	else:
-		print("back")
-		position += direction * SPEED * delta * -1
-
+	#if bullet_direction:
+		#print("front")
+		#position += direction * SPEED * delta
+	#else:
+		#print("back")
+		#position += direction * SPEED * delta * -1
 	distance += SPEED * delta
 	
 	if distance > range:

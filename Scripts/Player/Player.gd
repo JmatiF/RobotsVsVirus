@@ -26,8 +26,8 @@ func _ready():
 	max_hp = 100.0
 	current_hp = 100.0
 	health_bar.scale.x = 7 #7.8 = max
-	#holding("Holding.R")
-	holding("Holding.L")
+	holding("Holding.R")
+	#holding("Holding.L")
 
 
 func _process(delta):
@@ -37,6 +37,16 @@ func _process(delta):
 func _physics_process(delta):
 	# Mouse movement
 	mouse_movement()
+	player_movement(delta)
+	
+	if Input.is_action_just_pressed("left_click"):
+		weapon_controller.shoot()
+	
+	if Input.is_action_just_pressed("equip_1"):
+		pass
+		#holding("Holding.R")
+
+func player_movement(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		#print("Not on floor")
@@ -54,10 +64,6 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
-	
-	if Input.is_action_just_pressed("equip_1"):
-		pass
-		#holding("Holding.R")
 
 func mouse_movement():
 	var mouse_pos = get_viewport().get_mouse_position()

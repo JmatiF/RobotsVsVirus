@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://crqgk7036hndm"]
+[gd_scene load_steps=3 format=3 uid="uid://crqgk7036hndm"]
 
 [ext_resource type="PackedScene" uid="uid://cifshu1wswof0" path="res://Models/weapons/primary/AssaultRifles/M4 TRY 1.glb" id="1_n86od"]
+[ext_resource type="Script" path="res://Scripts/Weapons/Weapons/Primary/AssaultRifles/M4Try1.gd" id="2_mpmqj"]
 
 [node name="M4 TRY 1" instance=ExtResource("1_n86od")]
+script = ExtResource("2_mpmqj")
 
 [node name="SpawnBullet" type="Marker3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794709, -2.9233)

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://xn7j454n6ph5" path="res://Scenes/Player/Player.tscn" id="1_dbubd"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8j05g"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_chb8j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_s2uyu"]
 
@@ -18,7 +18,7 @@ disable_mode = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 process_mode = 3
 transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 0, 0, 0)
-shape = SubResource("BoxShape3D_8j05g")
+shape = SubResource("WorldBoundaryShape3D_chb8j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 0, 0, 0)

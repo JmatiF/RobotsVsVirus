@@ -52,3 +52,5 @@ func attach_to_bone(bone_name,skeleton, bone_index):
 	bone_attachment.set_external_skeleton(skeleton)
 	bone_attachment.bone_name = bone_name
 
+func shoot():
+	current_weapon.shoot()

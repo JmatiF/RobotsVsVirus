@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://fceucpsvu83n"]
 
-[ext_resource type="Texture2D" uid="uid://bgsnpflr1eijh" path="res://Png/Rectangle/Rectangulo.png" id="1_epi3s"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x4nt1"]
+load_path = "res://.godot/imported/Rectangulo.png-25783e76a21d87a601851e56e40c2715.ctex"
 
 [node name="HpBar" type="Control"]
 layout_mode = 3
@@ -22,9 +23,9 @@ offset_right = 259.0
 offset_bottom = 639.0
 value = 50.0
 nine_patch_stretch = true
-texture_under = ExtResource("1_epi3s")
-texture_over = ExtResource("1_epi3s")
-texture_progress = ExtResource("1_epi3s")
+texture_under = SubResource("CompressedTexture2D_x4nt1")
+texture_over = SubResource("CompressedTexture2D_x4nt1")
+texture_progress = SubResource("CompressedTexture2D_x4nt1")
 tint_under = Color(0, 0, 0, 1)
 tint_over = Color(0.411765, 0, 0, 0)
 tint_progress = Color(0.956475, 0.530049, 0.512007, 1)
