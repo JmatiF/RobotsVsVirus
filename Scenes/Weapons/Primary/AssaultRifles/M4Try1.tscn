@@ -7,4 +7,4 @@
 script = ExtResource("2_mpmqj")
 
 [node name="SpawnBullet" type="Marker3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794709, -2.9233)
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0.794709, -2.915)

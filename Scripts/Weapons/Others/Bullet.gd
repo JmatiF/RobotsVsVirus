@@ -4,17 +4,13 @@ class_name Bullet
 var distance = 0
 const SPEED = 100
 @export var range = 1200
-var spawn_bullet
 
-
-func setup(range_of_weapon,spawn):
+func setup(range_of_weapon):
 	range = range_of_weapon
-	spawn_bullet = spawn
 
 func _physics_process(delta):
 	#var direction = Vector3.RIGHT.rotated(rotation, rotation.y)  # Assuming isometric view
-	var direction = -global_transform.basis.z.normalized()
-	
+	var direction = global_transform.basis.y.normalized()
 	
 	position +=  (direction * SPEED * delta)
 	distance += SPEED * delta
