@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://brgms6ab336mv"]
+
+[ext_resource type="PackedScene" uid="uid://c6fiyc462bjoq" path="res://Models/weapons/others/Bullet.glb" id="1_ckln7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1nmj"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.513726, 0, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwm05"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 16.0
+
+[node name="Bullet" instance=ExtResource("1_ckln7")]
+
+[node name="bullet" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_h1nmj")
+
+[node name="shell" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wwm05")

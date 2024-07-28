@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8r6sy2mywbxk"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons/Others/Bullet.gd" id="1_nnc1y"]
-[ext_resource type="PackedScene" uid="uid://c6fiyc462bjoq" path="res://Models/weapons/others/Bullet.glb" id="2_r7ug0"]
+[ext_resource type="PackedScene" uid="uid://brgms6ab336mv" path="res://Scenes/Weapons/Others/bullet_colors.tscn" id="2_0brym"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ei5x"]
 size = Vector3(0.0875244, 0.271301, 0.0879822)
@@ -11,10 +11,10 @@ collision_layer = 0
 collision_mask = 6
 script = ExtResource("1_nnc1y")
 
-[node name="Bullet" parent="." instance=ExtResource("2_r7ug0")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000183105, 0.0265808, 1.52588e-05)
 shape = SubResource("BoxShape3D_4ei5x")
+
+[node name="Bullet" parent="." instance=ExtResource("2_0brym")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
