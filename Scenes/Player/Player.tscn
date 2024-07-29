@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/CameraController.gd" id="3_dshg4"]
 [ext_resource type="Script" path="res://Scripts/Player/WeaponController.gd" id="3_ls3id"]
 [ext_resource type="PackedScene" uid="uid://dqactihshk360" path="res://Scenes/Ui/HealthBar.tscn" id="4_4rduo"]
-[ext_resource type="PackedScene" uid="uid://fceucpsvu83n" path="res://Scenes/Ui/HpBar.tscn" id="5_n21so"]
+[ext_resource type="PackedScene" uid="uid://c0ml0hop6sa7e" path="res://Scenes/Robots/Robot0004.tscn" id="4_u5eo7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6tmth"]
 height = 1.86856
@@ -27,8 +27,9 @@ external_skeleton = NodePath("")
 [node name="SkinController" type="Node3D" parent="."]
 script = ExtResource("2_4nigf")
 
+[node name="Robot0004" parent="SkinController" instance=ExtResource("4_u5eo7")]
+
 [node name="CameraController" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3029, -0.108821)
 script = ExtResource("3_dshg4")
 
 [node name="Camera3D" type="Camera3D" parent="CameraController"]
@@ -37,6 +38,3 @@ current = true
 
 [node name="HealthBar" parent="CameraController/Camera3D" instance=ExtResource("4_4rduo")]
 transform = Transform3D(-0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, -1.29015, -1.06561, -1.56806)
-
-[node name="HpBar" parent="CameraController/Camera3D" instance=ExtResource("5_n21so")]
-visible = false
