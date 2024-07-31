@@ -1,6 +1,6 @@
 extends Node3D
 
-enum WeaponType { PRIMARY, SECONDARY, TERTIARY }
+enum weapon_type { PRIMARY, SECONDARY, TERTIARY }
 
 @onready var bone_attachment = $BoneAttachment3D
 
@@ -17,22 +17,22 @@ var tertiary_weapon
 
 
 func _ready():
-	load_weapon(1,"primary")
+	load_weapon(1, weapon_type.PRIMARY )
 
-func load_weapon(weapon_id, type: String):
+func load_weapon(weapon_id, type):
 	var weapon_scene = weapon_scenes[weapon_id]
 	if weapon_scene:
 		var weapon = load(weapon_scene).instantiate()
 		match type:
-			WeaponType.PRIMARY:
+			weapon_type.PRIMARY:
 				if primary_weapon:
 					primary_weapon.queue_free()
 				primary_weapon = weapon
-			WeaponType.SECONDARY:
+			weapon_type.SECONDARY:
 				if secondary_weapon:
 					secondary_weapon.queue_free()
 				secondary_weapon = weapon
-			WeaponType.TERTIARY:
+			weapon_type.TERTIARY:
 				if tertiary_weapon:
 					tertiary_weapon.queue_free()
 				tertiary_weapon = weapon
@@ -45,7 +45,6 @@ func equip_weapon(weapon):
 		current_weapon.queue_free()
 	current_weapon = weapon
 	bone_attachment.add_child(current_weapon)
-
 
 func attach_to_bone(bone_name,skeleton, bone_index):
 	#print(skeleton,bone_name)

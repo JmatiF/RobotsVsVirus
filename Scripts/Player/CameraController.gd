@@ -6,10 +6,10 @@ extends Node3D
 # cam 1p scale 1 ; 1 ; 1
 
 # Enum
-enum CameraType { ISOMETRIC, THIRD_PERSON, FIRST_PERSON }
+enum camera_game_type { ISOMETRIC, THIRD_PERSON, FIRST_PERSON }
 
 # Camera type
-var camera_type = CameraType.ISOMETRIC
+var camera_type = camera_game_type.ISOMETRIC
 
 # Isometric_1
 var isometric_1_camera_position = Vector3(0, 22, 6)
@@ -21,22 +21,22 @@ var min_isometric_1_position = Vector3(0, 22, 6) / 2
 
 func _ready():
 	match camera_type:
-		CameraType.ISOMETRIC:
+		camera_game_type.ISOMETRIC:
 			camera.position = isometric_1_camera_position
 			camera.rotation_degrees = isometric_1_camera_rotation
-		CameraType.THIRD_PERSON:
+		camera_game_type.THIRD_PERSON:
 			pass
-		CameraType.FIRST_PERSON:
+		camera_game_type.FIRST_PERSON:
 			pass
 
 func _process(delta):
 	match camera_type:
-		CameraType.ISOMETRIC:
+		camera_game_type.ISOMETRIC:
 			position_isometric_1()
 			camera.position = isometric_1_camera_position
-		CameraType.THIRD_PERSON:
+		camera_game_type.THIRD_PERSON:
 			pass
-		CameraType.FIRST_PERSON:
+		camera_game_type.FIRST_PERSON:
 			pass
 
 func position_isometric_1():

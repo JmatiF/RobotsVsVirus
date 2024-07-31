@@ -31,7 +31,7 @@ input_1/reset = false
 animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0ijed"]
-graph_offset = Vector2(-675.867, 107.303)
+graph_offset = Vector2(-579, 151)
 nodes/animations/node = SubResource("AnimationNodeBlend2_vaxi2")
 nodes/animations/position = Vector2(100, 280)
 nodes/holding/node = SubResource("AnimationNodeBlend2_e7x0p")
@@ -54,21 +54,22 @@ node_connections = [&"animations", 0, &"holding", &"animations", 1, &"movement",
 [node name="Skeleton3D" parent="Esqueleto" index="0"]
 bones/1/rotation = Quaternion(0, -0.297641, 0, 0.954678)
 bones/2/rotation = Quaternion(0, 0.297691, 0, 0.954662)
-bones/4/rotation = Quaternion(-0.505189, -0.46619, 0.557734, 0.46517)
-bones/5/rotation = Quaternion(0.0148698, 0.00214636, -0.0854317, 0.996231)
+bones/4/rotation = Quaternion(-0.504005, -0.467858, 0.55133, 0.472358)
+bones/5/rotation = Quaternion(0.0189775, -0.00688033, -0.0701499, 0.997332)
 bones/5/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.494414, 0.494414, -0.505525, 0.505524)
-bones/8/rotation = Quaternion(-0.559944, 0.47353, -0.489435, 0.471896)
-bones/9/rotation = Quaternion(-0.721206, -0.00993964, 0.135306, 0.679305)
+bones/7/rotation = Quaternion(-0.5, -0.5, 0.5, -0.5)
+bones/8/rotation = Quaternion(-0.517327, 0.518097, -0.480791, 0.482481)
+bones/9/rotation = Quaternion(-0.724228, 0.0363629, -0.0251435, 0.688142)
 bones/9/scale = Vector3(1, 1, 1)
-bones/10/rotation = Quaternion(0.521842, 0.034586, -0.0757384, 0.848969)
-bones/11/rotation = Quaternion(-0.505524, 0.505524, -0.494414, -0.494414)
-bones/12/rotation = Quaternion(0.707059, 0.00827164, -0.707058, -0.00827166)
+bones/10/rotation = Quaternion(0.520712, -0.00515002, -0.0100988, 0.853657)
+bones/11/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
+bones/12/rotation = Quaternion(0.707102, 0.00270123, -0.707102, -0.00270124)
 bones/12/scale = Vector3(1, 1, 1)
-bones/13/rotation = Quaternion(-1.71559e-08, 1.58924e-08, 0.0100823, 0.999949)
+bones/13/rotation = Quaternion(-8.83054e-09, 1.58932e-08, 0.00329443, 0.999995)
 bones/14/rotation = Quaternion(3.15229e-08, -7.81042e-09, -0.473086, 0.881017)
-bones/15/rotation = Quaternion(0.665342, -0.239416, 0.665342, -0.239416)
-bones/16/rotation = Quaternion(-8.47887e-10, -1.52007e-08, -0.291971, 0.956427)
+bones/15/rotation = Quaternion(0.663435, -0.24465, 0.663435, -0.24465)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(-9.1552e-09, -1.51689e-08, -0.298456, 0.954423)
 bones/17/rotation = Quaternion(3.15229e-08, 7.81043e-09, 0.473085, 0.881017)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]

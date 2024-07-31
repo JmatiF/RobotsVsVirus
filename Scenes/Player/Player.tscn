@@ -17,17 +17,17 @@ script = ExtResource("1_ab17k")
 transform = Transform3D(2.17787, 0, 0, 0, 3.13626, 0, 0, 0, 2.24332, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_6tmth")
 
+[node name="SkinController" type="Node3D" parent="."]
+script = ExtResource("2_4nigf")
+
+[node name="Robot0004" parent="SkinController" instance=ExtResource("4_u5eo7")]
+
 [node name="WeaponController" type="Node3D" parent="."]
 script = ExtResource("3_ls3id")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="WeaponController"]
 use_external_skeleton = true
 external_skeleton = NodePath("")
-
-[node name="SkinController" type="Node3D" parent="."]
-script = ExtResource("2_4nigf")
-
-[node name="Robot0004" parent="SkinController" instance=ExtResource("4_u5eo7")]
 
 [node name="CameraController" type="Node3D" parent="."]
 script = ExtResource("3_dshg4")
@@ -38,3 +38,7 @@ current = true
 
 [node name="HealthBar" parent="CameraController/Camera3D" instance=ExtResource("4_4rduo")]
 transform = Transform3D(-0.1, 0, 8.74228e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, -1.29015, -1.06561, -1.56806)
+
+[node name="TextEdit" type="TextEdit" parent="CameraController/Camera3D"]
+offset_right = 8.0
+offset_bottom = 8.0
