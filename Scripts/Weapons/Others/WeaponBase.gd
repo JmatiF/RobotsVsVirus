@@ -5,6 +5,11 @@ class_name WeaponBase
 var bullet = preload("res://Scenes/Weapons/Others/Bullet.tscn")
 
 
+# Enum
+enum weapon_type { PRIMARY, SECONDARY, TERTIARY }
+
+var current_weapon_type : weapon_type
+
 
 # Variables
 var can_shoot = true
@@ -52,7 +57,9 @@ func can_shoot_false():
 	can_shoot = false
 
 
-# Setters
+# Setters ---------------------------------------------------------------------------------
+func set_weapon_type(new_type: weapon_type):
+	current_weapon_type = new_type
 
 func set_max_ammo(new_ammo: int):
 	max_ammo = new_ammo
@@ -66,7 +73,10 @@ func set_ammo_mag(new_ammo_mag: int):
 func set_current_ammo_mag(new_current_ammo_mag: int):
 	current_ammo_mag = new_current_ammo_mag
 
-# Getters
+# Getters ---------------------------------------------------------------------------------
+func get_weapon_type():
+	return current_weapon_type
+
 func get_max_ammo():
 	return max_ammo
 

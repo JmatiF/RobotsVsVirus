@@ -17,12 +17,13 @@ var tertiary_weapon
 
 
 func _ready():
-	load_weapon(1, weapon_type.PRIMARY )
+	load_weapon(1)
 
-func load_weapon(weapon_id, type):
+func load_weapon(weapon_id):
 	var weapon_scene = weapon_scenes[weapon_id]
 	if weapon_scene:
 		var weapon = load(weapon_scene).instantiate()
+		var type = weapon.get_weapon_type()
 		match type:
 			weapon_type.PRIMARY:
 				if primary_weapon:
