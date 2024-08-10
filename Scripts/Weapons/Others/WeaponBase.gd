@@ -8,7 +8,7 @@ var bullet = preload("res://Scenes/Weapons/Others/Bullet.tscn")
 
 # Variables
 var can_shoot = true
-var ammo : int 
+var max_ammo : int 
 var current_ammo : int
 var ammo_mag : int
 var current_ammo_mag : int
@@ -27,15 +27,19 @@ func shoot():
 		#can_shoot=true
 
 func _process(delta):
-	if current_ammo_mag == 0:
+	if current_ammo_mag <= 0:
 		can_shoot = false
 		print("ab c")
 		$"AnimationPlayer".play("reload")
 
 
 func refill_mag():
-	current_ammo -= ammo_mag
-	current_ammo_mag = ammo_mag
+	if current_ammo < ammo_mag:
+		current_ammo_mag = current_ammo
+		current_ammo = 0
+	else:
+		current_ammo -= ammo_mag
+		current_ammo_mag = ammo_mag
 	can_shoot_true()
 
 
@@ -50,8 +54,8 @@ func can_shoot_false():
 
 # Setters
 
-func set_ammo(new_ammo: int):
-	ammo = new_ammo
+func set_max_ammo(new_ammo: int):
+	max_ammo = new_ammo
 
 func set_current_ammo(new_current_ammo: int):
 	current_ammo = new_current_ammo
@@ -63,8 +67,8 @@ func set_current_ammo_mag(new_current_ammo_mag: int):
 	current_ammo_mag = new_current_ammo_mag
 
 # Getters
-func get_ammo():
-	return ammo
+func get_max_ammo():
+	return max_ammo
 
 func get_current_ammo():
 	return current_ammo
