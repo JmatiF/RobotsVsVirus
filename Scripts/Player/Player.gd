@@ -33,16 +33,12 @@ func _ready():
 func _process(delta):
 	update_animation()
 	
-	if Input.is_action_pressed("left_click"):
-		weapon_controller.shoot()
-	if Input.is_action_just_pressed("equip_1"):
-		pass
 
 func _physics_process(delta):
 	# Mouse movement
 	mouse_movement()
 	player_movement(delta)
-	
+	weapons_controllers()
 	
 
 func player_movement(delta):
@@ -83,6 +79,22 @@ func mouse_movement():
 		skin_controller.look_at(look_at_me, Vector3.UP)
 		#weapon_controller.look_at(look_at_me, Vector3.UP)
 		#weapon_controller.rotation_degrees = skin_controller.rotation_degrees
+
+func weapons_controllers():
+	if Input.is_action_pressed("left_click"):
+		weapon_controller.shoot()
+	
+	if Input.is_action_just_pressed("equip_1"):
+		weapon_controller.equip_weapon(weapon_controller.get_primary_weapon())
+	
+	if Input.is_action_just_pressed("equip_2"):
+		weapon_controller.equip_weapon(weapon_controller.get_secundary_weapon())
+	
+	if Input.is_action_just_pressed("equip_3"):
+		weapon_controller.equip_weapon(weapon_controller.get_tertiary_weapon())
+	
+	if Input.is_action_just_pressed("reload"):
+		weapon_controller.reload_weapon()
 
 func update_animation():
 	if (velocity.x != 0 or velocity.z != 0):

@@ -52,5 +52,20 @@ func attach_to_bone(bone_name,skeleton, bone_index):
 	bone_attachment.set_external_skeleton(skeleton)
 	bone_attachment.bone_name = bone_name
 
+# weapons code
+
 func shoot():
 	current_weapon.shoot()
+
+func reload_weapon():
+	current_weapon.reload_weapon()
+
+# Getters --------------------------------------------
+func get_primary_weapon():
+	return primary_weapon
+
+func get_secondary_weapon():
+	return secondary_weapon
+
+func get_tertiary_weapon():
+	return tertiary_weapon

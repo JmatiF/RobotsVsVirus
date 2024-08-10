@@ -3,7 +3,7 @@ class_name Bullet
 
 var distance = 0
 const SPEED = 100
-@export var range = 1200
+@export var range = 200
 
 func setup(range_of_weapon):
 	range = range_of_weapon

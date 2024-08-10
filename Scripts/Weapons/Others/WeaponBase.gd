@@ -19,10 +19,12 @@ var ammo_mag : int
 var current_ammo_mag : int
 var damage : float
 
+var bullet_range : float = 200
+
 func shoot():
 	if can_shoot:
 		var new_bullet = bullet.instantiate()
-		new_bullet.setup(2000)
+		new_bullet.setup(bullet_range)
 		new_bullet.global_transform = $"SpawnBullet".global_transform
 		get_tree().root.add_child(new_bullet)  # Añade la bala a la escena principal
 		current_ammo_mag -=1
@@ -33,21 +35,26 @@ func shoot():
 
 func _process(delta):
 	if current_ammo_mag <= 0:
-		can_shoot = false
-		print("ab c")
+		can_shoot_false()
 		$"AnimationPlayer".play("reload")
 
 
 func refill_mag():
-	if current_ammo < ammo_mag:
-		current_ammo_mag = current_ammo
-		current_ammo = 0
-	else:
-		current_ammo -= ammo_mag
-		current_ammo_mag = ammo_mag
-	can_shoot_true()
+	if current_ammo > 0:
+		var ammo_needed = ammo_mag - current_ammo_mag
+		
+		if current_ammo <= ammo_needed:
+			current_ammo_mag += current_ammo
+			current_ammo = 0
+		else:
+			current_ammo_mag = ammo_mag
+			current_ammo -= ammo_needed
+		
+		can_shoot_true()
 
-
+func reload_weapon():
+	can_shoot_false()
+	$"AnimationPlayer".play("reload")
 
 # can_shoot
 
@@ -56,8 +63,10 @@ func can_shoot_true():
 func can_shoot_false(): 
 	can_shoot = false
 
-
 # Setters ---------------------------------------------------------------------------------
+func set_bullet_range(new_range: float):
+	bullet_range = new_range
+
 func set_weapon_type(new_type: weapon_type):
 	current_weapon_type = new_type
 
@@ -74,6 +83,9 @@ func set_current_ammo_mag(new_current_ammo_mag: int):
 	current_ammo_mag = new_current_ammo_mag
 
 # Getters ---------------------------------------------------------------------------------
+func get_bullet_range():
+	return bullet_range
+
 func get_weapon_type():
 	return current_weapon_type
 
