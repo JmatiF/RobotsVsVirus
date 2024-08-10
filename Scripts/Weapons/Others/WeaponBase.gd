@@ -4,20 +4,52 @@ class_name WeaponBase
 # Components 
 var bullet = preload("res://Scenes/Weapons/Others/Bullet.tscn")
 
+
+
 # Variables
+var can_shoot = true
 var ammo : int 
 var current_ammo : int
 var ammo_mag : int
 var current_ammo_mag : int
+var damage : float
 
 func shoot():
-	var new_bullet = bullet.instantiate()
-	new_bullet.setup(2000)
-	new_bullet.global_transform = $"SpawnBullet".global_transform
-	get_tree().root.add_child(new_bullet)  # Añade la bala a la escena principal
+	if can_shoot:
+		var new_bullet = bullet.instantiate()
+		new_bullet.setup(2000)
+		new_bullet.global_transform = $"SpawnBullet".global_transform
+		get_tree().root.add_child(new_bullet)  # Añade la bala a la escena principal
+		current_ammo_mag -=1
+		$AnimationPlayer.play("shoot")
+		#can_shoot = false
+		#await $AnimationPlayer.animation_finished
+		#can_shoot=true
+
+func _process(delta):
+	if current_ammo_mag == 0:
+		can_shoot = false
+		print("ab c")
+		$"AnimationPlayer".play("reload")
+
+
+func refill_mag():
+	current_ammo -= ammo_mag
+	current_ammo_mag = ammo_mag
+	can_shoot_true()
+
+
+
+# can_shoot
+
+func can_shoot_true(): 
+	can_shoot = true
+func can_shoot_false(): 
+	can_shoot = false
 
 
 # Setters
+
 func set_ammo(new_ammo: int):
 	ammo = new_ammo
 
