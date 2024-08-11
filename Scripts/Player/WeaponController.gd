@@ -6,8 +6,8 @@ enum weapon_type { PRIMARY, SECONDARY, TERTIARY }
 
 const weapon_scenes = {
 	1: "res://Scenes/Weapons/Primary/AssaultRifles/M4Try1.tscn",
-	2: "res://Scenes/Weapons/Secondary/Robot0003.tscn",
-	3: "res://Scenes/Weapons/Tertiary/Robot0003.tscn",
+	2: "res://Scenes/Weapons/Primary/Shotguns/EscopetaFea.tscn",
+	3: "res://Scenes/Weapons/Secondary/Pistols/Prototype.tscn",
 }
 
 var current_weapon
@@ -17,7 +17,8 @@ var tertiary_weapon
 
 
 func _ready():
-	load_weapon(1)
+	load_weapon(2)
+	load_weapon(3)
 
 func load_weapon(weapon_id):
 	var weapon_scene = weapon_scenes[weapon_id]
@@ -29,10 +30,12 @@ func load_weapon(weapon_id):
 				if primary_weapon:
 					primary_weapon.queue_free()
 				primary_weapon = weapon
+				print("1")
 			weapon_type.SECONDARY:
 				if secondary_weapon:
 					secondary_weapon.queue_free()
 				secondary_weapon = weapon
+				print("2")
 			weapon_type.TERTIARY:
 				if tertiary_weapon:
 					tertiary_weapon.queue_free()

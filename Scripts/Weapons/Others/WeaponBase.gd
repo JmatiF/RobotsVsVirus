@@ -26,7 +26,7 @@ func shoot():
 		var new_bullet = bullet.instantiate()
 		new_bullet.setup(bullet_range)
 		new_bullet.global_transform = $"SpawnBullet".global_transform
-		get_tree().root.add_child(new_bullet)  # Añade la bala a la escena principal
+		get_tree().root.add_child(new_bullet) 
 		current_ammo_mag -=1
 		$AnimationPlayer.play("shoot")
 		#can_shoot = false

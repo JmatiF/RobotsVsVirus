@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://crqgk7036hndm"]
+[gd_scene load_steps=6 format=3 uid="uid://dt0ntwl6j4m1h"]
 
-[ext_resource type="PackedScene" uid="uid://xc6ijnu0wott" path="res://Models/weapons/primary/AssaultRifles/M4 TRY 1.glb" id="1_n86od"]
-[ext_resource type="Script" path="res://Scripts/Weapons/Primary/AssaultRifles/M4Try1.gd" id="2_mpmqj"]
+[ext_resource type="PackedScene" uid="uid://vre0age1vfdc" path="res://Models/weapons/primary/Shotguns/EscopetaFea.glb" id="1_sxaiw"]
+[ext_resource type="Script" path="res://Scripts/Weapons/Primary/Shotguns/EscopetaFea.gd" id="2_weho3"]
 
 [sub_resource type="Animation" id="Animation_sqqub"]
 resource_name = "reload"
@@ -23,14 +23,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Mag:visible")
+tracks/1/path = NodePath("Cube:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.271774, -0.000660231, -0.0214319), Vector3(-0.271774, -0.000660231, -0.0214319), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.000610288, 0.000693797), Vector3(0, 0.244271, -0.147288), Vector3(0, 0.244271, -0.147288), Vector3(0, -0.000610288, 0.000693797)]
 }
 
 [sub_resource type="Animation" id="Animation_pjh4f"]
@@ -75,16 +87,22 @@ _data = {
 "shoot": SubResource("Animation_pjh4f")
 }
 
-[node name="M4 TRY 1" instance=ExtResource("1_n86od")]
-script = ExtResource("2_mpmqj")
+[node name="EscopetaFea" instance=ExtResource("1_sxaiw")]
+script = ExtResource("2_weho3")
 
 [node name="Cube" parent="." index="0"]
-transform = Transform3D(0.144628, 0, 0, 0, 0.144628, 0, 0, 0, 0.144628, 0, 0, 0)
+transform = Transform3D(0.145, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 0, -0.000610288, 0.000693797)
+
+[node name="Mag" parent="." index="1"]
+transform = Transform3D(0.145, 0, 0, 0, 0.145, 0, 0, 0, 0.145, 0, 0, 0)
 
 [node name="SpawnBullet" type="Marker3D" parent="." index="2"]
-transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0.794709, -2.73132)
+transform = Transform3D(-0.981627, 0.190809, -8.34053e-09, 0, -4.37114e-08, -1, -0.190809, -0.981627, 4.29083e-08, 0.411239, 3.56901, -20.2115)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="SpawnBullet2" type="Marker3D" parent="." index="3"]
+transform = Transform3D(-0.981627, -0.190809, 8.34052e-09, 0, -4.37114e-08, -1, 0.190809, -0.981627, 4.29083e-08, -0.453854, 3.56901, -20.2115)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_7hswu")
 }

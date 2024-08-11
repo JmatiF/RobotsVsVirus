@@ -40,7 +40,7 @@ func _process(delta):
 			pass
 
 func position_isometric_1():
-	if (Input.is_action_just_pressed("increase")) and isometric_1_camera_position < max_isometric_1_position:
+	if (Input.is_action_just_pressed("decrease")) and isometric_1_camera_position < max_isometric_1_position:
 		isometric_1_camera_position += isometric_1_camera_position/5
-	if (Input.is_action_just_pressed("decrease")) and isometric_1_camera_position > min_isometric_1_position:
+	if (Input.is_action_just_pressed("increase")) and isometric_1_camera_position > min_isometric_1_position:
 		isometric_1_camera_position -= isometric_1_camera_position/5
