@@ -88,7 +88,7 @@ func weapons_controllers():
 		weapon_controller.equip_weapon(weapon_controller.get_primary_weapon())
 	
 	if Input.is_action_just_pressed("equip_2"):
-		weapon_controller.equip_weapon(weapon_controller.get_secundary_weapon())
+		weapon_controller.equip_weapon(weapon_controller.get_secondary_weapon())
 	
 	if Input.is_action_just_pressed("equip_3"):
 		weapon_controller.equip_weapon(weapon_controller.get_tertiary_weapon())

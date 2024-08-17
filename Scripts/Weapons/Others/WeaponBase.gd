@@ -6,7 +6,7 @@ var bullet = preload("res://Scenes/Weapons/Others/Bullet.tscn")
 
 
 # Enum
-enum weapon_type { PRIMARY, SECONDARY, TERTIARY }
+enum weapon_type {PRIMARY,SECONDARY,TERTIARY}
 
 var current_weapon_type : weapon_type
 
@@ -68,7 +68,9 @@ func set_bullet_range(new_range: float):
 	bullet_range = new_range
 
 func set_weapon_type(new_type: weapon_type):
+	print("this set is: " + str(new_type))
 	current_weapon_type = new_type
+	print("this set is for current_weapon_type: " + str(current_weapon_type))
 
 func set_max_ammo(new_ammo: int):
 	max_ammo = new_ammo
@@ -87,6 +89,7 @@ func get_bullet_range():
 	return bullet_range
 
 func get_weapon_type():
+	print("this get is: " + str(current_weapon_type))
 	return current_weapon_type
 
 func get_max_ammo():
