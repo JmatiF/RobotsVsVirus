@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dt0ntwl6j4m1h"]
 
-[ext_resource type="PackedScene" uid="uid://vre0age1vfdc" path="res://Models/weapons/primary/Shotguns/EscopetaFea.glb" id="1_sxaiw"]
+[ext_resource type="PackedScene" uid="uid://vre0age1vfdc" path="res://Models/Weapons/Primary/Shotguns/EscopetaFea.glb" id="1_sxaiw"]
 [ext_resource type="Script" path="res://Scripts/Weapons/Primary/Shotguns/EscopetaFea.gd" id="2_weho3"]
 
 [sub_resource type="Animation" id="Animation_sqqub"]

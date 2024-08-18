@@ -82,7 +82,7 @@ func mouse_movement():
 		#weapon_controller.rotation_degrees = skin_controller.rotation_degrees
 
 func weapons_controllers():
-	if Input.is_action_pressed("left_click"):
+	if Input.is_action_pressed("shoot"):
 		weapon_controller.shoot()
 	
 	if Input.is_action_just_pressed("equip_1"):
@@ -105,6 +105,9 @@ func update_animation():
 
 func reload_animation(weapon_reload_animation):
 	skin_controller.play_reload(weapon_reload_animation)
+
+func knife_animation(current_attack_mode):
+	skin_controller.play_
 
 func holding(hold):
 	var result = skin_controller.holding_bone(hold)

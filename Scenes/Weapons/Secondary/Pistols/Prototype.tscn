@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://6hbof4uby80p"]
 
-[ext_resource type="PackedScene" uid="uid://e70lo8okit2o" path="res://Models/weapons/secondary/Pistols/Prototype.glb" id="1_pkt53"]
+[ext_resource type="PackedScene" uid="uid://e70lo8okit2o" path="res://Models/Weapons/Secondary/Pistols/Prototype.glb" id="1_pkt53"]
 [ext_resource type="Script" path="res://Scripts/Weapons/Secundary/Pistols/Prototype.gd" id="2_dd36d"]
 
 [sub_resource type="Animation" id="Animation_sqqub"]
@@ -79,7 +79,7 @@ _data = {
 script = ExtResource("2_dd36d")
 
 [node name="SpawnBullet" type="Marker3D" parent="." index="2"]
-transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0.794709, -2.73132)
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0.794709, -1.19586)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {

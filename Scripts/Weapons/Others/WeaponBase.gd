@@ -19,8 +19,14 @@ var max_ammo : int
 var current_ammo : int
 var ammo_per_mag : int
 var current_ammo_per_mag : int
-var damage : float
 
+# Shoots Variables Methods
+var damage : float
+var alternative_damage : float
+var push_dir : Vector3
+var push_dist : float
+
+# Bullets Variables Methods
 var bullet_range : float = 200
 
 func shoot():
@@ -34,6 +40,9 @@ func shoot():
 		#can_shoot = false
 		#await $AnimationPlayer.animation_finished
 		#can_shoot=true
+
+func alternative_shoot():
+	pass
 
 func _process(delta):
 	if current_ammo_per_mag <= 0:

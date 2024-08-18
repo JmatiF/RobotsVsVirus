@@ -38,3 +38,6 @@ func play_idle():
 
 func play_reload(weapon_reload_animation):
 	current_tree.set("parameters/reload/transition_request", str(weapon_reload_animation))
+
+func play_knife(current_attack_mode):
+	current_tree.set("parameters/reload/transition_request", str(current_attack_mode))
