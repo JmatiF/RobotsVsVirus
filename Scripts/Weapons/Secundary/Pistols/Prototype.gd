@@ -9,4 +9,4 @@ func _ready():
 	set_current_ammo(70)
 	set_bullet_range(150)
 	set_weapon_type(weapon_type.SECONDARY)
-	set_reload_type(reload_type.RELOAD_1)
+	set_reload_type("reload_m4")

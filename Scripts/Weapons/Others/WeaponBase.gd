@@ -7,11 +7,13 @@ var bullet = preload("res://Scenes/Weapons/Others/Bullet.tscn")
 
 # Enum
 enum weapon_type {PRIMARY,SECONDARY,TERTIARY}
-enum reload_type { RELOAD_1, RELOAD_2, RELOAD_3 }
 
 
 var current_weapon_type : weapon_type
-var current_reload : reload_type
+
+
+var reload_type : String # Reload type
+
 
 # Variables
 var can_shoot = true
@@ -66,7 +68,7 @@ func refill_mag():
 func reload_weapon():
 	if current_ammo_per_mag < ammo_per_mag:
 		can_shoot_false()
-		find_parent_by_name(self,"Player").reload_animation(str(current_reload))
+		find_parent_by_name(self,"Player").animation_holding(reload_type)
 		$"AnimationPlayer".play("reload")
 
 
@@ -95,8 +97,8 @@ func set_bullet_range(new_range: float):
 func set_weapon_type(new_type: weapon_type):
 	current_weapon_type = new_type
 
-func set_reload_type(new_reload: reload_type):
-	current_reload = new_reload
+func set_reload_type(new_reload):
+	reload_type = new_reload
 
 func set_max_ammo(new_ammo: int):
 	max_ammo = new_ammo
@@ -117,8 +119,8 @@ func get_bullet_range():
 func get_weapon_type():
 	return current_weapon_type
 
-func getreload_type():
-	return current_reload
+func get_reload_type():
+	return reload_type
 
 func get_max_ammo():
 	return max_ammo

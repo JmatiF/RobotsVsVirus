@@ -1,21 +1,35 @@
 extends Node3D
 class_name KnifeBase
 
-enum knife_attack_mode {SLASH, STAB}
+# Enum
+enum weapon_type {PRIMARY,SECONDARY,TERTIARY}
 
-var current_attack_mode : knife_attack_mode = knife_attack_mode.SLASH
+# Enum var
+var current_weapon_type : weapon_type
 
-
+# Var
 var damage : float
 var alternative_damage : float
 var push_dir : Vector3
 var push_dist : float
 
+# Shoots var
 var can_shoot = true
+
+
+
+func _ready():
+	find_parent_by_name(self, "Player").animation_holding("holding_knife")
 
 func shoot():
 	if can_shoot:
-		find_parent_by_name(self, "Player").knife_animation(str(current_attack_mode))
+		can_shoot_false()
+		await find_parent_by_name(self, "Player").animation_holding("slash_knife")
+		can_shoot_true()
+		find_parent_by_name(self, "Player").animation_holding("holding_knife")
+
+func alternative_shoot():
+	pass
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.has_method("take_damage"):
@@ -32,8 +46,13 @@ func find_parent_by_name(node, target_name):
 		current_node = current_node.get_parent()
 	return null
 
-# Setters ---------------------------------------------------------------------------------
-func set_knife_attack_mode(new_mode : knife_attack_mode): current_attack_mode = new_mode
 
+func can_shoot_true(): 
+	can_shoot = true
+func can_shoot_false(): 
+	can_shoot = false
+
+# Setters ---------------------------------------------------------------------------------
+func set_weapon_type(new_type: weapon_type): current_weapon_type = new_type
 # Getters ---------------------------------------------------------------------------------
-func get_knife_attack_mode() -> knife_attack_mode: return current_attack_mode
+func get_weapon_type(): return current_weapon_type

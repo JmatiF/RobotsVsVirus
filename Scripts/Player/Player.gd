@@ -1,6 +1,13 @@
 extends Entity
 class_name Player
 
+# Enum
+enum holding_arm {_R, _L}
+
+# Enum Variable
+var current_holding : holding_arm = holding_arm._R
+var current_holding_for_func : String
+
 # Movement
 var speed = 40.0
 #var jump_velocity = 4.5
@@ -27,8 +34,7 @@ func _ready():
 	max_hp = 100.0
 	current_hp = 100.0
 	health_bar.scale.x = 7 #7.8 = max
-	holding("Holding.R")
-	#holding("Holding.L")
+	holding_setup()
 
 
 func _process(delta):
@@ -97,17 +103,16 @@ func weapons_controllers():
 	if Input.is_action_just_pressed("reload"):
 		weapon_controller.reload_weapon()
 
-func update_animation():
-	if (velocity.x != 0 or velocity.z != 0):
-		skin_controller.play_walk()
-	elif (velocity.x == 0 and velocity.z == 0): 
-		skin_controller.play_idle()
-
-func reload_animation(weapon_reload_animation):
-	skin_controller.play_reload(weapon_reload_animation)
-
-func knife_animation(current_attack_mode):
-	skin_controller.play_
+func holding_setup():
+	if current_holding != null:
+		var type = get_holding()
+		match type:
+			holding_arm._R:
+				holding("Holding.R")
+				current_holding_for_func = "_r"
+			holding_arm._L:
+				holding("Holding.L")
+				current_holding_for_func = "_l"
 
 func holding(hold):
 	var result = skin_controller.holding_bone(hold)
@@ -116,7 +121,27 @@ func holding(hold):
 		var bone_index = result[1]
 		weapon_controller.attach_to_bone(hold, bone_path, bone_index)
 
+
+func update_animation():
+	if (velocity.x != 0 or velocity.z != 0):
+		skin_controller.play_walk()
+	elif (velocity.x == 0 and velocity.z == 0): 
+		skin_controller.play_idle()
+
+
+func animation_holding(animation_holding):
+	print("A")
+	skin_controller.play_holding(animation_holding + current_holding_for_func)
+
 # Override death
 func death():
 	print("Moriste")
 	queue_free()
+
+
+
+
+# Setters ---------------------------------------------------------------------------------
+func set_holding(new_holding : holding_arm):current_holding = new_holding
+# Getters ---------------------------------------------------------------------------------
+func get_holding() -> holding_arm: return current_holding

@@ -8,6 +8,7 @@ const weapon_scenes = {
 	1: "res://Scenes/Weapons/Primary/AssaultRifles/M4Try1.tscn",
 	2: "res://Scenes/Weapons/Primary/Shotguns/EscopetaFea.tscn",
 	3: "res://Scenes/Weapons/Secondary/Pistols/Prototype.tscn",
+	4: "res://Scenes/Weapons/Tertiary/Knifes/Knife_1.tscn"
 }
 
 var current_weapon
@@ -18,6 +19,7 @@ var tertiary_weapon
 
 func _ready():
 	load_weapon(3)
+	load_weapon(4)
 	load_weapon(1)
 
 func load_weapon(weapon_id):
@@ -26,23 +28,23 @@ func load_weapon(weapon_id):
 		var weapon = load(weapon_scene).instantiate()
 		equip_weapon(weapon)
 		var type = weapon.get_weapon_type()
-		print("tipo arma: " + str(type))
+		#print("tipo arma: " + str(type))
 		match type:
 			weapon_type.PRIMARY:
 				if primary_weapon:
 					primary_weapon.queue_free()
 				primary_weapon = weapon
-				print("Asignado a PRIMARY")
+				#print("Asignado a PRIMARY")
 			weapon_type.SECONDARY:
 				if secondary_weapon:
 					secondary_weapon.queue_free()
 				secondary_weapon = weapon
-				print("Asignado a SECONDARY")
+				#print("Asignado a SECONDARY")
 			weapon_type.TERTIARY:
 				if tertiary_weapon:
 					tertiary_weapon.queue_free()
 				tertiary_weapon = weapon
-				print("Asignado a TERTIARY")
+				#print("Asignado a TERTIARY")
 		equip_weapon(weapon)
 	else:
 		print("Error: Invalid weapon ID")
