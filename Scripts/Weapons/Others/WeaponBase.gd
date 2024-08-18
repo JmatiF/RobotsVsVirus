@@ -7,16 +7,18 @@ var bullet = preload("res://Scenes/Weapons/Others/Bullet.tscn")
 
 # Enum
 enum weapon_type {PRIMARY,SECONDARY,TERTIARY}
+enum reload_type { RELOAD_1, RELOAD_2, RELOAD_3 }
+
 
 var current_weapon_type : weapon_type
-
+var current_reload : reload_type
 
 # Variables
 var can_shoot = true
 var max_ammo : int 
 var current_ammo : int
-var ammo_mag : int
-var current_ammo_mag : int
+var ammo_per_mag : int
+var current_ammo_per_mag : int
 var damage : float
 
 var bullet_range : float = 200
@@ -27,34 +29,48 @@ func shoot():
 		new_bullet.setup(bullet_range)
 		new_bullet.global_transform = $"SpawnBullet".global_transform
 		get_tree().root.add_child(new_bullet) 
-		current_ammo_mag -=1
+		current_ammo_per_mag -=1
 		$AnimationPlayer.play("shoot")
 		#can_shoot = false
 		#await $AnimationPlayer.animation_finished
 		#can_shoot=true
 
 func _process(delta):
-	if current_ammo_mag <= 0:
+	if current_ammo_per_mag <= 0:
 		can_shoot_false()
 		$"AnimationPlayer".play("reload")
 
 
 func refill_mag():
 	if current_ammo > 0:
-		var ammo_needed = ammo_mag - current_ammo_mag
+		var ammo_needed = ammo_per_mag - current_ammo_per_mag
 		
 		if current_ammo <= ammo_needed:
-			current_ammo_mag += current_ammo
+			current_ammo_per_mag += current_ammo
 			current_ammo = 0
 		else:
-			current_ammo_mag = ammo_mag
+			current_ammo_per_mag = ammo_per_mag
 			current_ammo -= ammo_needed
 		
 		can_shoot_true()
 
 func reload_weapon():
-	can_shoot_false()
-	$"AnimationPlayer".play("reload")
+	if current_ammo_per_mag < ammo_per_mag:
+		can_shoot_false()
+		find_parent_by_name(self,"Player").reload_animation(str(current_reload))
+		$"AnimationPlayer".play("reload")
+
+
+func find_parent_by_name(node, target_name):
+	var current_node = node
+	while current_node:
+		if current_node.name == target_name:
+			return current_node
+			print("node: " + str(current_node))
+		current_node = current_node.get_parent()
+	return null
+
+
 
 # can_shoot
 
@@ -68,9 +84,10 @@ func set_bullet_range(new_range: float):
 	bullet_range = new_range
 
 func set_weapon_type(new_type: weapon_type):
-	print("this set is: " + str(new_type))
 	current_weapon_type = new_type
-	print("this set is for current_weapon_type: " + str(current_weapon_type))
+
+func set_reload_type(new_reload: reload_type):
+	current_reload = new_reload
 
 func set_max_ammo(new_ammo: int):
 	max_ammo = new_ammo
@@ -78,19 +95,21 @@ func set_max_ammo(new_ammo: int):
 func set_current_ammo(new_current_ammo: int):
 	current_ammo = new_current_ammo
 
-func set_ammo_mag(new_ammo_mag: int):
-	ammo_mag = new_ammo_mag
+func set_ammo_per_mag(new_ammo_per_mag: int):
+	ammo_per_mag = new_ammo_per_mag
 
-func set_current_ammo_mag(new_current_ammo_mag: int):
-	current_ammo_mag = new_current_ammo_mag
+func set_current_ammo_per_mag(new_current_ammo_per_mag: int):
+	current_ammo_per_mag = new_current_ammo_per_mag
 
 # Getters ---------------------------------------------------------------------------------
 func get_bullet_range():
 	return bullet_range
 
 func get_weapon_type():
-	print("this get is: " + str(current_weapon_type))
 	return current_weapon_type
+
+func getreload_type():
+	return current_reload
 
 func get_max_ammo():
 	return max_ammo
@@ -98,8 +117,8 @@ func get_max_ammo():
 func get_current_ammo():
 	return current_ammo
 
-func get_ammo_mag():
-	return ammo_mag
+func get_ammo_per_mag():
+	return ammo_per_mag
 
-func get_current_ammo_mag():
-	return current_ammo_mag
+func get_current_ammo_per_mag():
+	return current_ammo_per_mag

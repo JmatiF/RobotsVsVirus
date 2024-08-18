@@ -1,4 +1,5 @@
 extends Entity
+class_name Player
 
 # Movement
 var speed = 40.0
@@ -101,6 +102,9 @@ func update_animation():
 		skin_controller.play_walk()
 	elif (velocity.x == 0 and velocity.z == 0): 
 		skin_controller.play_idle()
+
+func reload_animation(weapon_reload_animation):
+	skin_controller.play_reload(weapon_reload_animation)
 
 func holding(hold):
 	var result = skin_controller.holding_bone(hold)

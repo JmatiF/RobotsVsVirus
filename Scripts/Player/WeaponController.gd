@@ -51,19 +51,17 @@ func load_weapon(weapon_id):
 #func equip_weapon(weapon):
 	#if current_weapon != weapon:
 		#if current_weapon:
-			#current_weapon = null
-			#bone_attachment.get_child(0).queue_free()
+			#current_weapon.queue_free()
 		#current_weapon = weapon
 		#bone_attachment.add_child(current_weapon)
-
 func equip_weapon(weapon):
 	if current_weapon != weapon:
 		if current_weapon:
-			bone_attachment.get_child(0).queue_free()  # Elimina el arma actual del bone_attachment
-			current_weapon = null  # Limpia el current_weapon después de eliminar el arma
-		if weapon:  # Asegúrate de que la nueva arma no sea null
-			current_weapon = weapon
-			bone_attachment.add_child(current_weapon)
+			current_weapon.visible = false  # Hacer que el arma actual sea invisible en lugar de eliminarla
+		current_weapon = weapon
+		current_weapon.visible = true  # Hacer visible el arma seleccionada
+		bone_attachment.add_child(current_weapon)
+
 
 
 func attach_to_bone(bone_name,skeleton, bone_index):

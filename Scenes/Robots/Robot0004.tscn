@@ -1,6 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0ml0hop6sa7e"]
+[gd_scene load_steps=12 format=3 uid="uid://c0ml0hop6sa7e"]
 
 [ext_resource type="PackedScene" uid="uid://c5l4k5nfdwqvh" path="res://Models/Robots/Robot0004.glb" id="1_420gf"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hnd3r"]
+animation = &"holding_l"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_vaxi2"]
 filter_enabled = true
@@ -29,34 +32,50 @@ input_1/auto_advance = true
 input_1/break_loop_at_end = false
 input_1/reset = false
 
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_l14pa"]
+allow_transition_to_self = true
+input_0/name = "1"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "0"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ju6b2"]
 animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0ijed"]
+graph_offset = Vector2(-786.257, 87.7574)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_hnd3r")
+nodes/Animation/position = Vector2(-680, 220)
 nodes/animations/node = SubResource("AnimationNodeBlend2_vaxi2")
 nodes/animations/position = Vector2(100, 280)
 nodes/holding/node = SubResource("AnimationNodeBlend2_e7x0p")
-nodes/holding/position = Vector2(-120, 140)
+nodes/holding/position = Vector2(-120, 80)
 nodes/holding_l/node = SubResource("AnimationNodeAnimation_2ckyl")
-nodes/holding_l/position = Vector2(-300, 260)
+nodes/holding_l/position = Vector2(-520, 180)
 nodes/holding_r/node = SubResource("AnimationNodeAnimation_vtimt")
-nodes/holding_r/position = Vector2(-280, 120)
+nodes/holding_r/position = Vector2(-540, 20)
 nodes/idle_animation/node = SubResource("AnimationNodeAnimation_fr3oe")
 nodes/idle_animation/position = Vector2(-320, 400)
 nodes/movement/node = SubResource("AnimationNodeTransition_l4wmw")
-nodes/movement/position = Vector2(-80, 420)
+nodes/movement/position = Vector2(-100, 400)
 nodes/output/position = Vector2(340, 320)
+nodes/reload/node = SubResource("AnimationNodeTransition_l14pa")
+nodes/reload/position = Vector2(-300, 120)
 nodes/walk_animation/node = SubResource("AnimationNodeAnimation_ju6b2")
 nodes/walk_animation/position = Vector2(-320, 520)
-node_connections = [&"animations", 0, &"holding", &"animations", 1, &"movement", &"holding", 0, &"holding_r", &"holding", 1, &"holding_l", &"movement", 0, &"idle_animation", &"movement", 1, &"walk_animation", &"output", 0, &"animations"]
+node_connections = [&"animations", 0, &"holding", &"animations", 1, &"movement", &"holding", 0, &"reload", &"holding", 1, &"Animation", &"movement", 0, &"idle_animation", &"movement", 1, &"walk_animation", &"output", 0, &"animations", &"reload", 0, &"holding_r", &"reload", 1, &"holding_l"]
 
 [node name="Robot0004" instance=ExtResource("1_420gf")]
 
 [node name="Skeleton3D" parent="Esqueleto" index="0"]
 bones/1/rotation = Quaternion(0, -0.297641, 0, 0.954678)
 bones/2/rotation = Quaternion(0, 0.297691, 0, 0.954662)
-bones/4/rotation = Quaternion(-0.505187, -0.466193, 0.55772, 0.465186)
-bones/5/rotation = Quaternion(0.0148789, 0.00212641, -0.0853979, 0.996234)
+bones/4/rotation = Quaternion(-0.503809, -0.468124, 0.550289, 0.473517)
+bones/5/rotation = Quaternion(0.0196414, -0.00834023, -0.0676757, 0.997479)
 bones/5/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.5, -0.5, 0.5, -0.5)
 bones/8/rotation = Quaternion(-0.517327, 0.518097, -0.480791, 0.482481)
@@ -64,12 +83,12 @@ bones/9/rotation = Quaternion(-0.724228, 0.0363629, -0.0251435, 0.688142)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/rotation = Quaternion(0.520712, -0.00515002, -0.0100988, 0.853657)
 bones/11/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
-bones/12/rotation = Quaternion(0.688966, 0.159144, -0.688965, -0.159144)
+bones/12/rotation = Quaternion(0.705523, 0.0472966, -0.705523, -0.0472966)
 bones/12/scale = Vector3(1, 1, 1)
-bones/13/rotation = Quaternion(-1.99459e-08, 1.55931e-08, 0.193426, 0.981115)
+bones/13/rotation = Quaternion(9.14559e-10, 1.58669e-08, 0.0575438, 0.998343)
 bones/14/rotation = Quaternion(3.15229e-08, -7.81042e-09, -0.473086, 0.881017)
-bones/15/rotation = Quaternion(0.701131, -0.0917377, 0.701131, -0.0917377)
-bones/16/rotation = Quaternion(1.77185e-09, -1.57942e-08, -0.111485, 0.993766)
+bones/15/rotation = Quaternion(0.677546, -0.202316, 0.677546, -0.202316)
+bones/16/rotation = Quaternion(-1.90212e-08, -1.54039e-08, -0.246235, 0.96921)
 bones/17/rotation = Quaternion(3.15229e-08, 7.81043e-09, 0.473085, 0.881017)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
@@ -80,3 +99,6 @@ parameters/holding/blend_amount = 0.0
 parameters/movement/current_state = "idle"
 parameters/movement/transition_request = ""
 parameters/movement/current_index = 0
+parameters/reload/current_state = "1"
+parameters/reload/transition_request = ""
+parameters/reload/current_index = 0

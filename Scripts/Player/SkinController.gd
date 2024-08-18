@@ -35,3 +35,6 @@ func play_walk():
 
 func play_idle():
 	current_tree.set("parameters/movement/transition_request", "idle")
+
+func play_reload(weapon_reload_animation):
+	current_tree.set("parameters/reload/transition_request", str(weapon_reload_animation))
