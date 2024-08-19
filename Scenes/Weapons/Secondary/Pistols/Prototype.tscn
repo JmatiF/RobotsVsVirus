@@ -78,6 +78,9 @@ _data = {
 [node name="Prototype" instance=ExtResource("1_pkt53")]
 script = ExtResource("2_dd36d")
 
+[node name="Mag" parent="." index="1"]
+visible = false
+
 [node name="SpawnBullet" type="Marker3D" parent="." index="2"]
 transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 0.794709, -1.19586)
 

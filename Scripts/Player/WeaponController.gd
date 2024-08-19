@@ -50,18 +50,15 @@ func load_weapon(weapon_id):
 		print("Error: Invalid weapon ID")
 
 
-#func equip_weapon(weapon):
-	#if current_weapon != weapon:
-		#if current_weapon:
-			#current_weapon.queue_free()
-		#current_weapon = weapon
-		#bone_attachment.add_child(current_weapon)
+
 func equip_weapon(weapon):
 	if current_weapon != weapon:
 		if current_weapon:
-			current_weapon.visible = false  # Hacer que el arma actual sea invisible en lugar de eliminarla
+			current_weapon.visible = false  # Makes invisible the current weapon
+			current_weapon.set_is_this_animated(false)
 		current_weapon = weapon
-		current_weapon.visible = true  # Hacer visible el arma seleccionada
+		current_weapon.visible = true  # Makes visible the current weapon
+		current_weapon.set_is_this_animated(true)
 		bone_attachment.add_child(current_weapon)
 
 

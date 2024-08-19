@@ -13,7 +13,9 @@ var current_weapon_type : weapon_type
 
 
 var reload_type : String # Reload type
-
+var holding_type : String
+var current_animation : String
+var is_this_animated : bool = true
 
 # Variables
 var can_shoot = true
@@ -50,6 +52,7 @@ func _process(delta):
 	if current_ammo_per_mag <= 0:
 		can_shoot_false()
 		$"AnimationPlayer".play("reload")
+	ejecute_animation(current_animation)
 
 
 func refill_mag():
@@ -68,8 +71,10 @@ func refill_mag():
 func reload_weapon():
 	if current_ammo_per_mag < ammo_per_mag:
 		can_shoot_false()
-		find_parent_by_name(self,"Player").animation_holding(reload_type)
+		set_current_animation(reload_type)
 		$"AnimationPlayer".play("reload")
+		await $AnimationPlayer.animation_finished
+		set_current_animation(holding_type)
 
 
 func find_parent_by_name(node, target_name):
@@ -81,7 +86,9 @@ func find_parent_by_name(node, target_name):
 		current_node = current_node.get_parent()
 	return null
 
-
+func ejecute_animation(animation):
+	if is_this_animated:
+		find_parent_by_name(self,"Player").animation_holding(animation)
 
 # can_shoot
 
@@ -109,8 +116,12 @@ func set_current_ammo(new_current_ammo: int):
 func set_ammo_per_mag(new_ammo_per_mag: int):
 	ammo_per_mag = new_ammo_per_mag
 
-func set_current_ammo_per_mag(new_current_ammo_per_mag: int):
-	current_ammo_per_mag = new_current_ammo_per_mag
+func set_current_ammo_per_mag(new_current_ammo_per_mag: int):current_ammo_per_mag = new_current_ammo_per_mag
+
+func set_holding_type(new_holding_type: String): holding_type = new_holding_type
+
+func set_current_animation(new_animation: String): current_animation = new_animation
+func set_is_this_animated(is_animated: bool): is_this_animated = is_animated
 
 # Getters ---------------------------------------------------------------------------------
 func get_bullet_range():
@@ -133,3 +144,8 @@ func get_ammo_per_mag():
 
 func get_current_ammo_per_mag():
 	return current_ammo_per_mag
+
+func get_holding_type() -> String: return holding_type
+
+func get_current_animation() -> String: return current_animation
+func get_is_this_animated() -> bool: return is_this_animated

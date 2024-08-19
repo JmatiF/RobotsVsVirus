@@ -8,23 +8,23 @@ filters = ["Esqueleto/Skeleton3D:Foot.L", "Esqueleto/Skeleton3D:Foot.R", "Esquel
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_us7o6"]
 input_0/name = "holding_m4_r"
-input_0/auto_advance = false
+input_0/auto_advance = true
 input_0/break_loop_at_end = false
 input_0/reset = true
 input_1/name = "holding_m4_l"
-input_1/auto_advance = false
+input_1/auto_advance = true
 input_1/break_loop_at_end = false
 input_1/reset = true
 input_2/name = "reload_m4_r"
-input_2/auto_advance = false
+input_2/auto_advance = true
 input_2/break_loop_at_end = false
 input_2/reset = true
 input_3/name = "holding_knife_r"
-input_3/auto_advance = false
+input_3/auto_advance = true
 input_3/break_loop_at_end = false
 input_3/reset = true
 input_4/name = "slash_knife_r"
-input_4/auto_advance = false
+input_4/auto_advance = true
 input_4/break_loop_at_end = false
 input_4/reset = true
 
@@ -61,7 +61,7 @@ animation = &"slash_knife_r"
 animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0ijed"]
-graph_offset = Vector2(-723.479, -179.661)
+graph_offset = Vector2(-802, -148)
 nodes/animations/node = SubResource("AnimationNodeBlend2_vaxi2")
 nodes/animations/position = Vector2(100, 280)
 nodes/holding/node = SubResource("AnimationNodeTransition_us7o6")
@@ -88,32 +88,34 @@ node_connections = [&"animations", 0, &"holding", &"animations", 1, &"movement",
 [node name="Robot0004" instance=ExtResource("1_420gf")]
 
 [node name="Skeleton3D" parent="Esqueleto" index="0"]
-bones/1/rotation = Quaternion(0, -0.117343, 0, 0.993092)
-bones/2/rotation = Quaternion(0, 0.121122, 0, 0.992638)
-bones/4/rotation = Quaternion(-0.344513, -0.344727, 0.616521, 0.618366)
-bones/5/rotation = Quaternion(-0.433576, -0.0425778, 0.0115049, 0.900037)
+bones/1/rotation = Quaternion(0, -0.297641, 0, 0.954678)
+bones/2/rotation = Quaternion(0, 0.297691, 0, 0.954662)
+bones/4/rotation = Quaternion(-0.499242, -0.473592, 0.52737, 0.498346)
+bones/5/rotation = Quaternion(0.0339822, -0.039952, -0.0139274, 0.998526)
 bones/5/scale = Vector3(1, 1, 1)
-bones/6/rotation = Quaternion(1.16554e-08, -5.48064e-08, -0.0663538, 0.997796)
+bones/6/rotation = Quaternion(8.09087e-09, -6.05359e-08, -4.65661e-10, 1)
 bones/7/rotation = Quaternion(-0.5, -0.5, 0.5, -0.5)
-bones/8/rotation = Quaternion(-0.345332, 0.345548, -0.616062, 0.617907)
-bones/9/rotation = Quaternion(-0.630684, 0.0391492, -0.02062, 0.774778)
+bones/8/rotation = Quaternion(-0.517327, 0.518097, -0.480791, 0.482481)
+bones/9/rotation = Quaternion(-0.724228, 0.0363629, -0.0251435, 0.688142)
 bones/9/scale = Vector3(1, 1, 1)
-bones/10/rotation = Quaternion(-0.0925354, -0.409744, 0.0602157, 0.905495)
+bones/10/rotation = Quaternion(0.520712, -0.00515002, -0.0100988, 0.853657)
 bones/11/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
-bones/12/rotation = Quaternion(0.700191, 0.098655, -0.700191, -0.098655)
+bones/12/rotation = Quaternion(0.70709, 0.00493487, -0.707089, -0.00493487)
 bones/12/scale = Vector3(1, 1, 1)
-bones/13/rotation = Quaternion(-1.18961e-08, 1.56901e-08, 0.159382, 0.987217)
+bones/13/rotation = Quaternion(1.26668e-10, 1.58927e-08, 0.00796991, 0.999968)
 bones/14/rotation = Quaternion(3.15229e-08, -7.81042e-09, -0.473085, 0.881017)
+bones/15/rotation = Quaternion(0.697987, -0.1132, 0.697987, -0.1132)
 bones/15/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(-1.14977e-08, -1.56254e-08, -0.182804, 0.983149)
 bones/17/rotation = Quaternion(3.15229e-08, 7.81043e-09, 0.473085, 0.881017)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeBlendTree_0ijed")
 anim_player = NodePath("../AnimationPlayer")
 parameters/animations/blend_amount = 1.0
-parameters/holding/current_state = "holding_knife_r"
+parameters/holding/current_state = "holding_m4_r"
 parameters/holding/transition_request = ""
-parameters/holding/current_index = 3
+parameters/holding/current_index = 0
 parameters/movement/current_state = "idle"
 parameters/movement/transition_request = ""
 parameters/movement/current_index = 0

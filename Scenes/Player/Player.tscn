@@ -1,26 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://xn7j454n6ph5"]
+[gd_scene load_steps=7 format=3 uid="uid://xn7j454n6ph5"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_ab17k"]
 [ext_resource type="Script" path="res://Scripts/Player/SkinController.gd" id="2_4nigf"]
 [ext_resource type="Script" path="res://Scripts/Player/CameraController.gd" id="3_dshg4"]
 [ext_resource type="Script" path="res://Scripts/Player/WeaponController.gd" id="3_ls3id"]
 [ext_resource type="PackedScene" uid="uid://dqactihshk360" path="res://Scenes/Ui/HealthBar.tscn" id="4_4rduo"]
-[ext_resource type="PackedScene" uid="uid://c0ml0hop6sa7e" path="res://Scenes/Robots/Robot0004.tscn" id="4_u5eo7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6tmth"]
-height = 1.86856
+height = 1.97746
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ab17k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2.17787, 0, 0, 0, 3.13626, 0, 0, 0, 2.24332, 0, 0, 0)
+transform = Transform3D(2.17787, 0, 0, 0, 3.13626, 0, 0, 0, 2.24332, 0, -0.404344, 0)
 shape = SubResource("CapsuleShape3D_6tmth")
 
 [node name="SkinController" type="Node3D" parent="."]
 script = ExtResource("2_4nigf")
-
-[node name="Robot0004" parent="SkinController" instance=ExtResource("4_u5eo7")]
 
 [node name="WeaponController" type="Node3D" parent="."]
 script = ExtResource("3_ls3id")
