@@ -16,11 +16,11 @@ input_1/name = "holding_m4_l"
 input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
-input_2/name = "reload_r_m4"
+input_2/name = "reload_m4_r"
 input_2/auto_advance = false
 input_2/break_loop_at_end = false
 input_2/reset = true
-input_3/name = "holding_r_knife"
+input_3/name = "holding_knife_r"
 input_3/auto_advance = false
 input_3/break_loop_at_end = false
 input_3/reset = true
@@ -29,14 +29,14 @@ input_4/auto_advance = false
 input_4/break_loop_at_end = false
 input_4/reset = true
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eb8rq"]
+animation = &"holding_knife_r"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ckyl"]
 animation = &"holding_m4_l"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vtimt"]
 animation = &"holding_m4_r"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eb8rq"]
-animation = &"holding_r_knife"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fr3oe"]
 animation = &"idle"
@@ -53,46 +53,46 @@ input_1/break_loop_at_end = false
 input_1/reset = false
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_af26b"]
-animation = &"reload_r_m4"
+animation = &"reload_m4_r"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uveoj"]
-animation = &"slash_r_knife"
+animation = &"slash_knife_r"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ju6b2"]
 animation = &"walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0ijed"]
-graph_offset = Vector2(-584.578, 323.569)
+graph_offset = Vector2(-936.589, 29.3936)
 nodes/animations/node = SubResource("AnimationNodeBlend2_vaxi2")
 nodes/animations/position = Vector2(100, 280)
 nodes/holding/node = SubResource("AnimationNodeTransition_l14pa")
 nodes/holding/position = Vector2(-240, 40)
+nodes/holding_knife_r/node = SubResource("AnimationNodeAnimation_eb8rq")
+nodes/holding_knife_r/position = Vector2(-560, 300)
 nodes/holding_m4_l/node = SubResource("AnimationNodeAnimation_2ckyl")
 nodes/holding_m4_l/position = Vector2(-540, 20)
 nodes/holding_m4_r/node = SubResource("AnimationNodeAnimation_vtimt")
 nodes/holding_m4_r/position = Vector2(-540, -120)
-nodes/holding_r_knife/node = SubResource("AnimationNodeAnimation_eb8rq")
-nodes/holding_r_knife/position = Vector2(-560, 300)
 nodes/idle_animation/node = SubResource("AnimationNodeAnimation_fr3oe")
 nodes/idle_animation/position = Vector2(-320, 400)
 nodes/movement/node = SubResource("AnimationNodeTransition_l4wmw")
 nodes/movement/position = Vector2(-100, 400)
 nodes/output/position = Vector2(340, 320)
-nodes/reload_r_m4/node = SubResource("AnimationNodeAnimation_af26b")
-nodes/reload_r_m4/position = Vector2(-560, 160)
+nodes/reload_m4_r/node = SubResource("AnimationNodeAnimation_af26b")
+nodes/reload_m4_r/position = Vector2(-560, 160)
 nodes/slash_knife_r/node = SubResource("AnimationNodeAnimation_uveoj")
 nodes/slash_knife_r/position = Vector2(-560, 440)
 nodes/walk_animation/node = SubResource("AnimationNodeAnimation_ju6b2")
 nodes/walk_animation/position = Vector2(-320, 520)
-node_connections = [&"animations", 0, &"holding", &"animations", 1, &"movement", &"holding", 0, &"holding_m4_r", &"holding", 1, &"holding_m4_l", &"holding", 2, &"reload_r_m4", &"holding", 3, &"holding_r_knife", &"holding", 4, &"slash_knife_r", &"movement", 0, &"idle_animation", &"movement", 1, &"walk_animation", &"output", 0, &"animations"]
+node_connections = [&"animations", 0, &"holding", &"animations", 1, &"movement", &"holding", 0, &"holding_m4_r", &"holding", 1, &"holding_m4_l", &"holding", 2, &"reload_m4_r", &"holding", 3, &"holding_knife_r", &"holding", 4, &"slash_knife_r", &"movement", 0, &"idle_animation", &"movement", 1, &"walk_animation", &"output", 0, &"animations"]
 
 [node name="Robot0004" instance=ExtResource("1_420gf")]
 
 [node name="Skeleton3D" parent="Esqueleto" index="0"]
 bones/1/rotation = Quaternion(0, -0.297641, 0, 0.954678)
 bones/2/rotation = Quaternion(0, 0.297691, 0, 0.954662)
-bones/4/rotation = Quaternion(-0.501509, -0.471038, 0.538451, 0.486501)
-bones/5/rotation = Quaternion(0.0271175, -0.0248021, -0.0397282, 0.998535)
+bones/4/rotation = Quaternion(-0.507897, -0.461887, 0.573278, 0.447273)
+bones/5/rotation = Quaternion(0.00474412, 0.024348, -0.122902, 0.992109)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/rotation = Quaternion(8.09087e-09, -6.05359e-08, -4.65661e-10, 1)
 bones/7/rotation = Quaternion(-0.5, -0.5, 0.5, -0.5)
@@ -103,9 +103,9 @@ bones/10/rotation = Quaternion(0.520712, -0.00515002, -0.0100988, 0.853657)
 bones/11/rotation = Quaternion(0.5, -0.5, 0.5, 0.5)
 bones/12/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(3.15229e-08, -7.81042e-09, -0.473085, 0.881017)
-bones/15/rotation = Quaternion(0.707045, -0.00931877, 0.707045, -0.00931877)
+bones/15/rotation = Quaternion(0.697908, -0.113683, 0.697909, -0.113683)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/rotation = Quaternion(2.39227e-10, -1.58915e-08, -0.0150521, 0.999887)
+bones/16/rotation = Quaternion(1.41204e-09, -1.56231e-08, -0.183581, 0.983005)
 bones/17/rotation = Quaternion(3.15229e-08, 7.81043e-09, 0.473085, 0.881017)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]

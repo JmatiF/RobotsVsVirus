@@ -37,5 +37,5 @@ func play_idle():
 	current_tree.set("parameters/movement/transition_request", "idle")
 
 func play_holding(weapon_reload_animation):
-	print("NO creo que el problema este acá")
-	current_tree.set("parameters/holding/transition_request", str(weapon_reload_animation))
+	print(weapon_reload_animation)
+	current_tree.set("parameters/holding/transition_request", weapon_reload_animation)
