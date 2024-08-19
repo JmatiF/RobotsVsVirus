@@ -24,9 +24,8 @@ func _ready():
 func shoot():
 	if can_shoot:
 		can_shoot_false()
-		await find_parent_by_name(self, "Player").animation_holding("slash_knife")
+		find_parent_by_name(self, "Player").animation_holding("slash_knife")
 		can_shoot_true()
-		find_parent_by_name(self, "Player").animation_holding("holding_knife")
 
 func alternative_shoot():
 	pass

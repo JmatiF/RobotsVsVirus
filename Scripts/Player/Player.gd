@@ -130,7 +130,6 @@ func update_animation():
 
 
 func animation_holding(animation_holding):
-	print("A")
 	skin_controller.play_holding(animation_holding + current_holding_for_func)
 
 # Override death
