@@ -16,6 +16,21 @@ albedo_color = Color(0.26851, 0.101466, 0.0306359, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uc0es"]
 size = Vector3(0.0629883, 0.816467, 0.169312)
 
+[sub_resource type="Animation" id="Animation_kok33"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_jwdvp"]
 resource_name = "attack"
 tracks/0/type = "value"
@@ -47,20 +62,22 @@ tracks/1/keys = {
 "method": &"can_shoot_true"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_kok33"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area3D/CollisionShape3D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"set_slash"
+}, {
+"args": [],
+"method": &"set_holding"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gphbo"]

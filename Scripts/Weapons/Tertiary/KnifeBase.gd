@@ -17,21 +17,23 @@ var push_dist : float
 var can_shoot = true
 
 # Animation var 
-var current_animation : String = "holding_knife"
+var current_animation : String
 var is_this_animated : bool = true
 
-#func _ready():
-	#ejecute_animation("holding_knife")
+var hold_animation : String
+var shoot_animation : String
+var alternative_shoot_animation : String
+
+
+func _ready():
+	set_current_animation(get_hold_animation())
 
 func _process(delta):
 	ejecute_animation(current_animation)
 
 func shoot():
 	if can_shoot:
-		set_current_animation("slash_knife")
 		$"AnimationPlayer".play("attack")
-		await $AnimationPlayer.animation_finished
-		set_current_animation("holding_knife")
 
 func alternative_shoot():
 	pass
@@ -60,7 +62,10 @@ func can_shoot_true():
 func can_shoot_false(): 
 	can_shoot = false
 
-
+func set_holding():
+	set_current_animation(get_hold_animation())
+func set_slash():
+	set_current_animation(get_shoot_animation())
 
 
 
@@ -69,7 +74,13 @@ func can_shoot_false():
 func set_weapon_type(new_type: weapon_type): current_weapon_type = new_type
 func set_current_animation(new_animation: String): current_animation = new_animation
 func set_is_this_animated(is_animated: bool): is_this_animated = is_animated
+func set_hold_animation(value: String) -> void:hold_animation = value
+func set_shoot_animation(value: String) -> void:shoot_animation = value
+func set_alternative_shoot_animation(value: String) -> void:alternative_shoot_animation = value
 # Getters ---------------------------------------------------------------------------------
 func get_weapon_type(): return current_weapon_type
 func get_current_animation() -> String: return current_animation
 func get_is_this_animated() -> bool: return is_this_animated
+func get_hold_animation() -> String: return hold_animation
+func get_shoot_animation() -> String: return shoot_animation
+func get_alternative_shoot_animation() -> String:return alternative_shoot_animation
