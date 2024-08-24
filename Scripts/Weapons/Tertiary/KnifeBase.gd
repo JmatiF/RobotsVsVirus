@@ -27,12 +27,11 @@ func _process(delta):
 	ejecute_animation(current_animation)
 
 func shoot():
-	if can_shoot == true:
-		can_shoot_false()
+	if can_shoot:
 		set_current_animation("slash_knife")
-		await get_tree().create_timer(0.833).timeout
+		$"AnimationPlayer".play("attack")
+		await $AnimationPlayer.animation_finished
 		set_current_animation("holding_knife")
-		can_shoot_true()
 
 func alternative_shoot():
 	pass

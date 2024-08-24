@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cox6heig1unia"]
+[gd_scene load_steps=10 format=3 uid="uid://cox6heig1unia"]
 
 [ext_resource type="PackedScene" uid="uid://bctecvie54w" path="res://Models/Weapons/Tertiary/Knifes/Knife_1.glb" id="1_su4x6"]
 [ext_resource type="Script" path="res://Scripts/Weapons/Tertiary/Knifes/Knife_1.gd" id="2_y74ev"]
@@ -15,6 +15,60 @@ albedo_color = Color(0.26851, 0.101466, 0.0306359, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uc0es"]
 size = Vector3(0.0629883, 0.816467, 0.169312)
+
+[sub_resource type="Animation" id="Animation_jwdvp"]
+resource_name = "attack"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"can_shoot_false"
+}, {
+"args": [],
+"method": &"can_shoot_true"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_kok33"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gphbo"]
+_data = {
+"RESET": SubResource("Animation_kok33"),
+"attack": SubResource("Animation_jwdvp")
+}
 
 [node name="Knife_1" instance=ExtResource("1_su4x6")]
 script = ExtResource("2_y74ev")
@@ -33,5 +87,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bsnsj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00415039, 0.952057, 0.00482178)
 shape = SubResource("BoxShape3D_uc0es")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_gphbo")
+}
 
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
