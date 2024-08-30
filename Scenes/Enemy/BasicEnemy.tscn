@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsng4rcvevs4d"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pq4rt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1wrn"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a40rm"]
+
+[node name="BasicEnemy" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_pq4rt")
+surface_material_override/0 = SubResource("StandardMaterial3D_g1wrn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_a40rm")

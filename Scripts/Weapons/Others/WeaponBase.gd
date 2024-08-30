@@ -50,8 +50,7 @@ func alternative_shoot():
 
 func _process(delta):
 	if current_ammo_per_mag <= 0:
-		can_shoot_false()
-		$"AnimationPlayer".play("reload")
+		reload_weapon()
 	ejecute_animation(current_animation)
 
 
